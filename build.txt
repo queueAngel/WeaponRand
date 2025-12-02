@@ -1,0 +1,6 @@
+displayName = Weapon Randomizer
+homepage = https://terramonmod.com/links/
+author = qAngel
+version = 0.1
+weakReferences = CalamityMod, ThoriumMod
+buildIgnore = *.csproj, *.user, obj\*, bin\*, lib\*

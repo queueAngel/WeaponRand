@@ -1,0 +1,52 @@
+Configs: {
+	WeaponRandConfig: {
+		DisplayName: Weapon Randomizer Settings
+
+		Headers: {
+			Randomizer: Randomizer Settings
+			Interval: Time Interval
+			Other: Other Settings
+		}
+
+		Active: {
+			Label: Active
+			Tooltip: Whether the randomizer is active
+		}
+
+		PostDoGCategory: {
+			Label: Post-DoG Category
+			Tooltip:
+				'''
+				If on, the randomizer will work in four categories instead of three, separating Calamity's Post-DoG category into its own.
+				This will only have an effect if Calamity is active.
+				'''
+		}
+
+		Milliseconds: {
+			Label: Milliseconds
+			Tooltip: Milliseconds between each randomization
+		}
+
+		Seconds: {
+			Label: Seconds
+			Tooltip: Seconds between each randomization
+		}
+
+		Minutes: {
+			Label: Minutes
+			Tooltip: Minutes between each randomization
+		}
+
+		MaxStack: {
+			Label: Max Stack
+			Tooltip: Whether weapons that can be stacked (e. g. Shurikens, Light Discs, Bananarang) should have their stack set to max when randomly obtained
+		}
+
+		ShowRandomizedEffect: {
+			Label: Randomization Effect
+			Tooltip: Whether to show a visual effect when a player's item is randomized
+		}
+	}
+}
+
+Common.RandomMessage: Randomized!

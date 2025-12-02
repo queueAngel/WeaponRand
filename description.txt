@@ -1,0 +1,7 @@
+Inspired by Gungnir's video "Terraria, but my weapon is randomized every minute..."
+
+While active, the item in your first hotbar slot will be transmogrified into a random weapon according to your current level of progression (Pre-Hardmode, Hardmode, or Post-Moon Lord) every minute (configurable in Mod Settings.)
+
+Currently supports Vanilla, Calamity, and Thorium weapons.
+
+Commissioned by ignThree (Thank you!)
