@@ -9,6 +9,7 @@ using CalamityMod.Items.Weapons.Ranged;
 using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Summon;
 using CalamityMod.Items.Weapons.Typeless;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -24,779 +25,785 @@ public sealed partial class WeaponRand : Mod
         if (global.UsesCharge)
             global.Charge = global.MaxCharge;
     }
-
     [JITWhenModsEnabled("CalamityMod")]
+    private static IEnumerable<short> GetCalPHM()
+    {
+        yield return (short)ItemType<Basher>();
+        yield return (short)ItemType<BrokenBiomeBlade>();
+        yield return (short)ItemType<BurntSienna>();
+        yield return (short)ItemType<FellerofEvergreens>();
+        yield return (short)ItemType<GaussDagger>();
+        yield return (short)ItemType<GeliticBlade>();
+        yield return (short)ItemType<MycelialClaws>();
+        yield return (short)ItemType<PerfectDark>();
+        yield return (short)ItemType<SeashineSword>();
+        yield return (short)ItemType<TaintedBlade>();
+        yield return (short)ItemType<TeardropCleaver>();
+        yield return (short)ItemType<VeinBurster>();
+        yield return (short)ItemType<WindBlade>();
+        yield return (short)ItemType<SaharaSlicers>();
+        yield return (short)ItemType<AirSpinner>();
+        yield return (short)ItemType<Aorta>();
+        yield return (short)ItemType<TheGodsGambit>();
+        yield return (short)ItemType<Riptide>();
+        yield return (short)ItemType<SmokingComet>();
+        yield return (short)ItemType<AmidiasTrident>();
+        yield return (short)ItemType<GoldplumeSpear>();
+        yield return (short)ItemType<RedtideSpear>();
+        yield return (short)ItemType<SausageMaker>();
+        yield return (short)ItemType<YateveoBloom>();
+        yield return (short)ItemType<BallOFugu>();
+        yield return (short)ItemType<UrchinFlail>();
+        yield return (short)ItemType<UrchinMace>();
+        yield return (short)ItemType<BladecrestOathsword>();
+        yield return (short)ItemType<DepthCrusher>();
+        yield return (short)ItemType<FracturedArk>();
+        yield return (short)ItemType<MonstrousKnives>();
+        yield return (short)ItemType<OldLordClaymore>();
+        yield return (short)ItemType<WulfrumScrewdriver>();
+        yield return (short)ItemType<Barinade>();
+        yield return (short)ItemType<Galeforce>();
+        yield return (short)ItemType<Goobow>();
+        yield return (short)ItemType<LunarianBow>();
+        yield return (short)ItemType<Shellshooter>();
+        yield return (short)ItemType<Toxibow>();
+        yield return (short)ItemType<AquashardShotgun>();
+        yield return (short)ItemType<Archerfish>();
+        yield return (short)ItemType<BulletFilledShotgun>();
+        yield return (short)ItemType<CrackshotColt>();
+        yield return (short)ItemType<Eviscerator>();
+        yield return (short)ItemType<Fungicide>();
+        yield return (short)ItemType<GunkShot>();
+        yield return (short)ItemType<DragoonDrizzlefish>();
+        yield return (short)ItemType<OverloadedBlaster>();
+        yield return (short)ItemType<Shadethrower>();
+        yield return (short)ItemType<SparkSpreader>();
+        yield return (short)ItemType<CoralCannon>();
+        yield return (short)ItemType<FirestormCannon>();
+        yield return (short)ItemType<FlurrystormCannon>();
+        yield return (short)ItemType<MagnaCannon>();
+        yield return (short)ItemType<OpalStriker>();
+        yield return (short)ItemType<Pumpler>();
+        yield return (short)ItemType<ReedBlowgun>();
+        yield return (short)ItemType<StormSurge>();
+        yield return (short)ItemType<Taser>();
+        yield return (short)ItemType<WulfrumBlunderbuss>();
+        yield return (short)ItemType<AquamarineStaff>();
+        yield return (short)ItemType<BloodBath>();
+        yield return (short)ItemType<HellwingStaff>();
+        yield return (short)ItemType<HyphaeRod>();
+        yield return (short)ItemType<IcicleStaff>();
+        yield return (short)ItemType<ManaRose>();
+        yield return (short)ItemType<NightsRay>();
+        yield return (short)ItemType<ParasiticSceptor>();
+        yield return (short)ItemType<PlasmaRod>();
+        yield return (short)ItemType<SandstreamScepter>();
+        yield return (short)ItemType<ShaderainStaff>();
+        yield return (short)ItemType<SkyGlaze>();
+        yield return (short)ItemType<AbyssShocker>();
+        yield return (short)ItemType<AcidGun>();
+        yield return (short)ItemType<PulsePistol>();
+        yield return (short)ItemType<AbyssalTome>();
+        yield return (short)ItemType<CoralSpout>();
+        yield return (short)ItemType<EldritchTome>();
+        yield return (short)ItemType<FlareBolt>();
+        yield return (short)ItemType<FrostBolt>();
+        yield return (short)ItemType<Tradewinds>();
+        yield return (short)ItemType<VeeringWind>();
+        yield return (short)ItemType<Waywasher>();
+        yield return (short)ItemType<BlackAnurian>();
+        yield return (short)ItemType<TheCauldron>();
+        yield return (short)ItemType<SparklingEmpress>();
+        yield return (short)ItemType<WulfrumProsthesis>();
+        yield return (short)ItemType<BelladonnaSpiritStaff>();
+        yield return (short)ItemType<BrittleStarStaff>();
+        yield return (short)ItemType<CinderBlossomStaff>();
+        yield return (short)ItemType<CorroslimeStaff>();
+        yield return (short)ItemType<CrimslimeStaff>();
+        yield return (short)ItemType<DankStaff>();
+        yield return (short)ItemType<DeathstareRod>();
+        yield return (short)ItemType<EnchantedConch>();
+        yield return (short)ItemType<EyeOfNight>();
+        yield return (short)ItemType<FleshOfInfidelity>();
+        yield return (short)ItemType<FrostBlossomStaff>();
+        yield return (short)ItemType<HerringStaff>();
+        yield return (short)ItemType<PuffShroom>();
+        yield return (short)ItemType<ScabRipper>();
+        yield return (short)ItemType<StaffOfNecrosteocytes>();
+        yield return (short)ItemType<StarSwallowerContainmentUnit>();
+        yield return (short)ItemType<StormjawStaff>();
+        yield return (short)ItemType<SunSpiritStaff>();
+        yield return (short)ItemType<VileFeeder>();
+        yield return (short)ItemType<WulfrumController>();
+        yield return (short)ItemType<CausticCroakerStaff>();
+        yield return (short)ItemType<HarvestStaff>();
+        yield return (short)ItemType<PolypLauncher>();
+        yield return (short)ItemType<RustyBeaconPrototype>();
+        yield return (short)ItemType<SquirrelSquireStaff>();
+        yield return (short)ItemType<Cnidarian>();
+        yield return (short)ItemType<SlimePuppetStaff>();
+        yield return (short)ItemType<ContaminatedBile>();
+        yield return (short)ItemType<MeteorFist>();
+        yield return (short)ItemType<SeafoamBomb>();
+        yield return (short)ItemType<EnchantedAxe>();
+        yield return (short)ItemType<FishboneBoomerang>();
+        yield return (short)ItemType<Glaive>();
+        yield return (short)ItemType<InfestedClawmerang>();
+        yield return (short)ItemType<Kylie>();
+        yield return (short)ItemType<SandDollar>();
+        yield return (short)ItemType<TrackingDisk>();
+        yield return (short)ItemType<AshenStalactite>();
+        yield return (short)ItemType<Cinquedea>();
+        yield return (short)ItemType<Crystalline>();
+        yield return (short)ItemType<FeatherKnife>();
+        yield return (short)ItemType<GelDart>();
+        yield return (short)ItemType<GildedDagger>();
+        yield return (short)ItemType<GleamingDagger>();
+        yield return (short)ItemType<InfernalKris>();
+        yield return (short)ItemType<Mycoroot>();
+        yield return (short)ItemType<ShinobiBlade>();
+        yield return (short)ItemType<WulfrumKnife>();
+        yield return (short)ItemType<ScourgeoftheDesert>();
+        yield return (short)ItemType<Turbulance>();
+        yield return (short)ItemType<BouncySpikyBall>();
+        yield return (short)ItemType<MetalMonstrosity>();
+        yield return (short)ItemType<NastyCholla>();
+        yield return (short)ItemType<PoisonPack>();
+        yield return (short)ItemType<SkyStabber>();
+        yield return (short)ItemType<StickySpikyBall>();
+        yield return (short)ItemType<WebBall>();
+        yield return (short)ItemType<BouncingEyeball>();
+        yield return (short)ItemType<HardenedHoneycomb>();
+        yield return (short)ItemType<IronFrancisca>();
+        yield return (short)ItemType<LeadTomahawk>();
+        yield return (short)ItemType<Lionfish>();
+        yield return (short)ItemType<RotBall>();
+        yield return (short)ItemType<SlickCane>();
+        yield return (short)ItemType<SludgeSplotch>();
+        yield return (short)ItemType<SnapClam>();
+        yield return (short)ItemType<ThrowingBrick>();
+        yield return (short)ItemType<ToothBall>();
+        yield return (short)ItemType<UrchinStinger>();
+        yield return (short)ItemType<Aestheticus>();
+    }
+    [JITWhenModsEnabled("CalamityMod")]
+    private static IEnumerable<short> GetCalHM()
+    {
+        yield return (short)ItemType<AbsoluteZero>();
+        yield return (short)ItemType<AegisBlade>();
+        yield return (short)ItemType<Aftershock>();
+        yield return (short)ItemType<AnarchyBlade>();
+        yield return (short)ItemType<AstralBlade>();
+        yield return (short)ItemType<AstralScythe>();
+        yield return (short)ItemType<Avalanche>();
+        yield return (short)ItemType<AxeofPurity>();
+        yield return (short)ItemType<BalefulHarvester>();
+        yield return (short)ItemType<TrueBiomeBlade>();
+        yield return (short)ItemType<BlightedCleaver>();
+        yield return (short)ItemType<Brimlash>();
+        yield return (short)ItemType<BrimstoneSword>();
+        yield return (short)ItemType<BrinyBaron>();
+        yield return (short)ItemType<Carnage>();
+        yield return (short)ItemType<CatastropheClaymore>();
+        yield return (short)ItemType<TrueCausticEdge>();
+        yield return (short)ItemType<CelestialClaymore>();
+        yield return (short)ItemType<CometQuasher>();
+        yield return (short)ItemType<TheDarkMaster>();
+        yield return (short)ItemType<DarklightGreatsword>();
+        yield return (short)ItemType<EntropicClaymore>();
+        yield return (short)ItemType<EutrophicScimitar>();
+        yield return (short)ItemType<EvilSmasher>();
+        yield return (short)ItemType<ExaltedOathblade>();
+        yield return (short)ItemType<FeralthornClaymore>();
+        yield return (short)ItemType<FlarefrostBlade>();
+        yield return (short)ItemType<Floodtide>();
+        yield return (short)ItemType<ForbiddenOathblade>();
+        yield return (short)ItemType<ForsakenSaber>();
+        yield return (short)ItemType<GrandGuardian>();
+        yield return (short)ItemType<Greentide>();
+        yield return (short)ItemType<HellfireFlamberge>();
+        yield return (short)ItemType<Hellkite>();
+        yield return (short)ItemType<InfernaCutter>();
+        yield return (short)ItemType<MajesticGuard>();
+        yield return (short)ItemType<MantisClaws>();
+        yield return (short)ItemType<Roxcalibur>();
+        yield return (short)ItemType<SoulHarvester>();
+        yield return (short)ItemType<StormRuler>();
+        yield return (short)ItemType<StormSaber>();
+        yield return (short)ItemType<TitanArm>();
+        yield return (short)ItemType<OmegaBiomeBlade>();
+        yield return (short)ItemType<UltimusCleaver>();
+        yield return (short)ItemType<Virulence>();
+        yield return (short)ItemType<Lucrecia>();
+        yield return (short)ItemType<SubmarineShocker>();
+        yield return (short)ItemType<FaultLine>();
+        yield return (short)ItemType<TheMicrowave>();
+        yield return (short)ItemType<Oblivion>();
+        yield return (short)ItemType<Pandemic>();
+        yield return (short)ItemType<Quagmire>();
+        yield return (short)ItemType<Shimmerspark>();
+        yield return (short)ItemType<SulphurousGrabber>();
+        yield return (short)ItemType<YinYo>();
+        yield return (short)ItemType<AstralPike>();
+        yield return (short)ItemType<BotanicPiercer>();
+        yield return (short)ItemType<Brimlance>();
+        yield return (short)ItemType<DiseasedPike>();
+        yield return (short)ItemType<EarthenPike>();
+        yield return (short)ItemType<GalvanizingGlaive>();
+        yield return (short)ItemType<HellionFlowerSpear>();
+        yield return (short)ItemType<StarnightLance>();
+        yield return (short)ItemType<TenebreusTides>();
+        yield return (short)ItemType<VulcaniteLance>();
+        yield return (short)ItemType<ClamCrusher>();
+        yield return (short)ItemType<Nebulash>();
+        yield return (short)ItemType<Tumbleweed>();
+        yield return (short)ItemType<AbyssBlade>();
+        yield return (short)ItemType<TrueArkoftheAncients>();
+        yield return (short)ItemType<Bonebreaker>();
+        yield return (short)ItemType<FallenPaladinsHammer>();
+        yield return (short)ItemType<Omniblade>();
+        yield return (short)ItemType<Pwnagehammer>();
+        yield return (short)ItemType<Respiteblock>();
+        yield return (short)ItemType<StygianShield>();
+        yield return (short)ItemType<TyphonsGreed>();
+        yield return (short)ItemType<AstralBow>();
+        yield return (short)ItemType<TheBallista>();
+        yield return (short)ItemType<Barinautical>();
+        yield return (short)ItemType<BlossomFlux>();
+        yield return (short)ItemType<BrimstoneFury>();
+        yield return (short)ItemType<ContinentalGreatbow>();
+        yield return (short)ItemType<CorrodedCaustibow>();
+        yield return (short)ItemType<DarkechoGreatbow>();
+        yield return (short)ItemType<FlarewingBow>();
+        yield return (short)ItemType<HoarfrostBow>();
+        yield return (short)ItemType<Malevolence>();
+        yield return (short)ItemType<MarksmanBow>();
+        yield return (short)ItemType<VernalBolter>();
+        yield return (short)ItemType<Arbalest>();
+        yield return (short)ItemType<BladedgeRailbow>();
+        yield return (short)ItemType<EternalBlizzard>();
+        yield return (short)ItemType<Animosity>();
+        yield return (short)ItemType<Arietes41>();
+        yield return (short)ItemType<AstralBlaster>();
+        yield return (short)ItemType<ClamorRifle>();
+        yield return (short)ItemType<ClockGatlignum>();
+        yield return (short)ItemType<ConferenceCall>();
+        yield return (short)ItemType<DeepcoreGK2>();
+        yield return (short)ItemType<FrostbiteBlaster>();
+        yield return (short)ItemType<Hellborn>();
+        yield return (short)ItemType<Helstorm>();
+        yield return (short)ItemType<Hydra>();
+        yield return (short)ItemType<Leviatitan>();
+        yield return (short)ItemType<Megalodon>();
+        yield return (short)ItemType<MidasPrime>();
+        yield return (short)ItemType<Needler>();
+        yield return (short)ItemType<NitroExpressRifle>();
+        yield return (short)ItemType<P90>();
+        yield return (short)ItemType<PestilentDefiler>();
+        yield return (short)ItemType<PlagueTaintedSMG>();
+        yield return (short)ItemType<RealmRavager>();
+        yield return (short)ItemType<Shroomer>();
+        yield return (short)ItemType<SlagMagnum>();
+        yield return (short)ItemType<ThermoclineBlaster>();
+        yield return (short)ItemType<Vortexpopper>();
+        yield return (short)ItemType<FlakKraken>();
+        yield return (short)ItemType<FlakToxicannon>();
+        yield return (short)ItemType<TheHive>();
+        yield return (short)ItemType<MineralMortar>();
+        yield return (short)ItemType<Scorpio>();
+        yield return (short)ItemType<AuroraBlazer>();
+        yield return (short)ItemType<BlightSpewer>();
+        yield return (short)ItemType<DeadSunsWind>();
+        yield return (short)ItemType<HavocsBreath>();
+        yield return (short)ItemType<Meowthrower>();
+        yield return (short)ItemType<WildfireBloom>();
+        yield return (short)ItemType<AdamantiteParticleAccelerator>();
+        yield return (short)ItemType<ArcNovaDiffuser>();
+        yield return (short)ItemType<BarracudaGun>();
+        yield return (short)ItemType<Buzzkill>();
+        yield return (short)ItemType<GaussRifle>();
+        yield return (short)ItemType<MatterModulator>();
+        yield return (short)ItemType<NullificationPistol>();
+        yield return (short)ItemType<PolarisParrotfish>();
+        yield return (short)ItemType<SandstormGun>();
+        yield return (short)ItemType<SeasSearing>();
+        yield return (short)ItemType<SpectralstormCannon>();
+        yield return (short)ItemType<SpeedBlaster>();
+        yield return (short)ItemType<StarSputter>();
+        yield return (short)ItemType<StellarCannon>();
+        yield return (short)ItemType<TitaniumRailgun>();
+        yield return (short)ItemType<AlulaAustralis>();
+        yield return (short)ItemType<ArchAmaryllis>();
+        yield return (short)ItemType<ArtAttack>();
+        yield return (short)ItemType<AstralStaff>();
+        yield return (short)ItemType<AstralachneaStaff>();
+        yield return (short)ItemType<Atlantis>();
+        yield return (short)ItemType<BrimroseStaff>();
+        yield return (short)ItemType<Downpour>();
+        yield return (short)ItemType<GleamingMagnolia>();
+        yield return (short)ItemType<GloriousEnd>();
+        yield return (short)ItemType<Hematemesis>();
+        yield return (short)ItemType<IcicleTrident>();
+        yield return (short)ItemType<InfernalRift>();
+        yield return (short)ItemType<Keelhaul>();
+        yield return (short)ItemType<Miasma>();
+        yield return (short)ItemType<Photosynthesis>();
+        yield return (short)ItemType<PlagueStaff>();
+        yield return (short)ItemType<ShiftingSands>();
+        yield return (short)ItemType<SnowstormStaff>();
+        yield return (short)ItemType<UndinesRetribution>();
+        yield return (short)ItemType<ValkyrieRay>();
+        yield return (short)ItemType<Vesuvius>();
+        yield return (short)ItemType<WyvernsCall>();
+        yield return (short)ItemType<Cryophobia>();
+        yield return (short)ItemType<GatlingLaser>();
+        yield return (short)ItemType<GaussPistol>();
+        yield return (short)ItemType<IonBlaster>();
+        yield return (short)ItemType<Lazhar>();
+        yield return (short)ItemType<NanoPurge>();
+        yield return (short)ItemType<SHPC>();
+        yield return (short)ItemType<TheSwarmer>();
+        yield return (short)ItemType<Wingman>();
+        yield return (short)ItemType<BurningSea>();
+        yield return (short)ItemType<DeathValleyDuster>();
+        yield return (short)ItemType<EvergladeSpray>();
+        yield return (short)ItemType<ForbiddenSun>();
+        yield return (short)ItemType<FrigidflashBolt>();
+        yield return (short)ItemType<LashesofChaos>();
+        yield return (short)ItemType<Poseidon>();
+        yield return (short)ItemType<PrimordialEarth>();
+        yield return (short)ItemType<RelicofRuin>();
+        yield return (short)ItemType<SeethingDischarge>();
+        yield return (short)ItemType<Serpentine>();
+        yield return (short)ItemType<ShadecrystalBarrage>();
+        yield return (short)ItemType<SlitheringEels>();
+        yield return (short)ItemType<StarShower>();
+        yield return (short)ItemType<TearsofHeaven>();
+        yield return (short)ItemType<TomeofFates>();
+        yield return (short)ItemType<WintersFury>();
+        yield return (short)ItemType<WrathoftheAncients>();
+        yield return (short)ItemType<AnahitasArpeggio>();
+        yield return (short)ItemType<ArcticBearPaw>();
+        yield return (short)ItemType<BelchingSaxophone>();
+        yield return (short)ItemType<ClothiersWrath>();
+        yield return (short)ItemType<CosmicRainbow>();
+        yield return (short)ItemType<HadalUrn>();
+        yield return (short)ItemType<AbandonedSlimeStaff>();
+        yield return (short)ItemType<AncientIceChunk>();
+        yield return (short)ItemType<BlackHawkRemote>();
+        yield return (short)ItemType<CausticStaff>();
+        yield return (short)ItemType<DaedalusGolemStaff>();
+        yield return (short)ItemType<DeepseaStaff>();
+        yield return (short)ItemType<DormantBrimseeker>();
+        yield return (short)ItemType<EntropysVigil>();
+        yield return (short)ItemType<ForgottenApexWand>();
+        yield return (short)ItemType<FuelCellBundle>();
+        yield return (short)ItemType<GastricBelcherStaff>();
+        yield return (short)ItemType<GlacialEmbrace>();
+        yield return (short)ItemType<HauntedScroll>();
+        yield return (short)ItemType<IgneousExaltation>();
+        yield return (short)ItemType<InfectedRemote>();
+        yield return (short)ItemType<MountedScanner>();
+        yield return (short)ItemType<PlantationStaff>();
+        yield return (short)ItemType<ResurrectionButterfly>();
+        yield return (short)ItemType<SandSharknadoStaff>();
+        yield return (short)ItemType<ShellfishStaff>();
+        yield return (short)ItemType<StarspawnHelixStaff>();
+        yield return (short)ItemType<TundraFlameBlossomsStaff>();
+        yield return (short)ItemType<VengefulSunStaff>();
+        yield return (short)ItemType<ViralSprout>();
+        yield return (short)ItemType<WitherBlossomsStaff>();
+        yield return (short)ItemType<CryogenicStaff>();
+        yield return (short)ItemType<DreadmineStaff>();
+        yield return (short)ItemType<HivePod>();
+        yield return (short)ItemType<OrthoceraShell>();
+        yield return (short)ItemType<PulseTurretRemote>();
+        yield return (short)ItemType<SpikecragStaff>();
+        yield return (short)ItemType<BorealisBomber>();
+        yield return (short)ItemType<AcidicRainBarrel>();
+        yield return (short)ItemType<BallisticPoisonBomb>();
+        yield return (short)ItemType<BlastBarrel>();
+        yield return (short)ItemType<BrackishFlask>();
+        yield return (short)ItemType<ConsecratedWater>();
+        yield return (short)ItemType<CraniumSmasher>();
+        yield return (short)ItemType<DesecratedWater>();
+        yield return (short)ItemType<DuststormInABottle>();
+        yield return (short)ItemType<Exorcism>();
+        yield return (short)ItemType<Plaguenade>();
+        yield return (short)ItemType<ShockGrenade>();
+        yield return (short)ItemType<SkyfinBombers>();
+        yield return (short)ItemType<SpentFuelContainer>();
+        yield return (short)ItemType<StarofDestruction>();
+        yield return (short)ItemType<TotalityBreakers>();
+        yield return (short)ItemType<BlazingStar>();
+        yield return (short)ItemType<Brimblade>();
+        yield return (short)ItemType<DefectiveSphere>();
+        yield return (short)ItemType<EpidemicShredder>();
+        yield return (short)ItemType<Equanimity>();
+        yield return (short)ItemType<FrostcrushValari>();
+        yield return (short)ItemType<Icebreaker>();
+        yield return (short)ItemType<KelvinCatalyst>();
+        yield return (short)ItemType<MangroveChakram>();
+        yield return (short)ItemType<SamsaraSlicer>();
+        yield return (short)ItemType<SubductionSlicer>();
+        yield return (short)ItemType<CobaltKunai>();
+        yield return (short)ItemType<CorpusAvertor>();
+        yield return (short)ItemType<CursedDagger>();
+        yield return (short)ItemType<LeviathanTeeth>();
+        yield return (short)ItemType<Malachite>();
+        yield return (short)ItemType<MonkeyDarts>();
+        yield return (short)ItemType<MythrilKnife>();
+        yield return (short)ItemType<OrichalcumSpikedGemstone>();
+        yield return (short)ItemType<Prismalline>();
+        yield return (short)ItemType<RadiantStar>();
+        yield return (short)ItemType<StellarKnife>();
+        yield return (short)ItemType<StormfrontRazor>();
+        yield return (short)ItemType<CrystalPiercer>();
+        yield return (short)ItemType<FrequencyManipulator>();
+        yield return (short)ItemType<IchorSpear>();
+        yield return (short)ItemType<PalladiumJavelin>();
+        yield return (short)ItemType<PhantasmalRuin>();
+        yield return (short)ItemType<ScourgeoftheSeas>();
+        yield return (short)ItemType<ShardofAntumbra>();
+        yield return (short)ItemType<SpearofDestiny>();
+        yield return (short)ItemType<SpearofPaleolith>();
+        yield return (short)ItemType<WaveSkipper>();
+        yield return (short)ItemType<BurningStrife>();
+        yield return (short)ItemType<Nychthemeron>();
+        yield return (short)ItemType<SystemBane>();
+        yield return (short)ItemType<AdamantiteThrowingAxe>();
+        yield return (short)ItemType<Apoctolith>();
+        yield return (short)ItemType<AuroradicalThrow>();
+        yield return (short)ItemType<CrushsawCrasher>();
+        yield return (short)ItemType<DeepWounder>();
+        yield return (short)ItemType<DukesDecapitator>();
+        yield return (short)ItemType<FantasyTalisman>();
+        yield return (short)ItemType<FrostyFlare>();
+        yield return (short)ItemType<GacruxianMollusk>();
+        yield return (short)ItemType<GraveGrimreaver>();
+        yield return (short)ItemType<HeavenfallenStardisk>();
+        yield return (short)ItemType<IceStar>();
+        yield return (short)ItemType<LeonidProgenitor>();
+        yield return (short)ItemType<RegulusRiot>();
+        yield return (short)ItemType<Sandslasher>();
+        yield return (short)ItemType<TheSyringe>();
+        yield return (short)ItemType<TerrorTalons>();
+        yield return (short)ItemType<TitaniumShuriken>();
+        yield return (short)ItemType<EyeofMagnus>();
+        yield return (short)ItemType<LunicEye>();
+    }
+    [JITWhenModsEnabled("CalamityMod")]
+    private static IEnumerable<short> GetCalPML()
+    {
+        yield return (short)ItemType<DefiledGreatsword>();
+        yield return (short)ItemType<Devastation>();
+        yield return (short)ItemType<GalactusBlade>();
+        yield return (short)ItemType<Grax>();
+        yield return (short)ItemType<GreatswordofJudgement>();
+        yield return (short)ItemType<HolyCollider>();
+        yield return (short)ItemType<TheLastMourning>();
+        yield return (short)ItemType<LifehuntScythe>();
+        yield return (short)ItemType<LionHeart>();
+        yield return (short)ItemType<MirrorBlade>();
+        yield return (short)ItemType<TheMutilator>();
+        yield return (short)ItemType<PlagueKeeper>();
+        yield return (short)ItemType<SolsticeClaymore>();
+        yield return (short)ItemType<StellarStriker>();
+        yield return (short)ItemType<Swordsplosion>();
+        yield return (short)ItemType<Terratomere>();
+        yield return (short)ItemType<TerrorBlade>();
+        yield return (short)ItemType<VoidEdge>();
+        yield return (short)ItemType<ElementalShiv>();
+        yield return (short)ItemType<GalileoGladius>();
+        yield return (short)ItemType<BurningRevelation>();
+        yield return (short)ItemType<Lacerator>();
+        yield return (short)ItemType<BansheeHook>();
+        yield return (short)ItemType<ElementalLance>();
+        yield return (short)ItemType<GildedProboscis>();
+        yield return (short)ItemType<SeekingScorcher>();
+        yield return (short)ItemType<CrescentMoon>();
+        yield return (short)ItemType<Mourningstar>();
+        yield return (short)ItemType<PulseDragon>();
+        yield return (short)ItemType<RemsRevenge>();
+        yield return (short)ItemType<ArkoftheElements>();
+        yield return (short)ItemType<DeathsAscension>();
+        yield return (short)ItemType<DevilsSunrise>();
+        yield return (short)ItemType<InsidiousImpaler>();
+        yield return (short)ItemType<NeptunesBounty>();
+        yield return (short)ItemType<PhosphorescentGauntlet>();
+        yield return (short)ItemType<StellarContempt>();
+        yield return (short)ItemType<ArterialAssault>();
+        yield return (short)ItemType<AstrealDefeat>();
+        yield return (short)ItemType<ClockworkBow>();
+        yield return (short)ItemType<DaemonsFlame>();
+        yield return (short)ItemType<TheMaelstrom>();
+        yield return (short)ItemType<Monsoon>();
+        yield return (short)ItemType<NettlevineGreatbow>();
+        yield return (short)ItemType<PlanetaryAnnihilation>();
+        yield return (short)ItemType<TheStorm>();
+        yield return (short)ItemType<TelluricGlare>();
+        yield return (short)ItemType<AngelicShotgun>();
+        yield return (short)ItemType<Auralis>();
+        yield return (short)ItemType<ClaretCannon>();
+        yield return (short)ItemType<CorinthPrime>();
+        yield return (short)ItemType<Disseminator>();
+        yield return (short)ItemType<FetidEmesis>();
+        yield return (short)ItemType<GoldenEagle>();
+        yield return (short)ItemType<HalibutCannon>();
+        yield return (short)ItemType<Infinity>();
+        yield return (short)ItemType<TheJailor>();
+        yield return (short)ItemType<Karasawa>();
+        yield return (short)ItemType<Kingsbane>();
+        yield return (short)ItemType<OnyxChainBlaster>();
+        yield return (short)ItemType<Onyxia>();
+        yield return (short)ItemType<PearlGod>();
+        yield return (short)ItemType<PridefulHuntersPlanarRipper>();
+        yield return (short)ItemType<RubicoPrime>();
+        yield return (short)ItemType<SDFMG>();
+        yield return (short)ItemType<Seadragon>();
+        yield return (short)ItemType<TheSevensStriker>();
+        yield return (short)ItemType<Shredder>();
+        yield return (short)ItemType<SomaPrime>();
+        yield return (short)ItemType<Spyker>();
+        yield return (short)ItemType<StormDragoon>();
+        yield return (short)ItemType<BlissfulBombardier>();
+        yield return (short)ItemType<HandheldTank>();
+        yield return (short)ItemType<BloodBoiler>();
+        yield return (short)ItemType<ElementalEruption>();
+        yield return (short)ItemType<HalleysInferno>();
+        yield return (short)ItemType<PristineFury>();
+        yield return (short)ItemType<FreedomStar>();
+        yield return (short)ItemType<HeavyLaserRifle>();
+        yield return (short)ItemType<MolecularManipulator>();
+        yield return (short)ItemType<SepticSkewer>();
+        yield return (short)ItemType<Starfleet>();
+        yield return (short)ItemType<SulphuricAcidCannon>();
+        yield return (short)ItemType<SuperradiantSlaughterer>();
+        yield return (short)ItemType<AsteroidStaff>();
+        yield return (short)ItemType<ClamorNoctus>();
+        yield return (short)ItemType<EidolonStaff>();
+        yield return (short)ItemType<ElementalRay>();
+        yield return (short)ItemType<FatesReveal>();
+        yield return (short)ItemType<MagneticMeltdown>();
+        yield return (short)ItemType<Mistlestorm>();
+        yield return (short)ItemType<PhantasmalFury>();
+        yield return (short)ItemType<ThePrince>();
+        yield return (short)ItemType<SanguineFlare>();
+        yield return (short)ItemType<ShadowboltStaff>();
+        yield return (short)ItemType<Teslastaff>();
+        yield return (short)ItemType<ThornBlossom>();
+        yield return (short)ItemType<UltraLiquidator>();
+        yield return (short)ItemType<VenusianTrident>();
+        yield return (short)ItemType<Viscera>();
+        yield return (short)ItemType<VitriolicViper>();
+        yield return (short)ItemType<VoltaicClimax>();
+        yield return (short)ItemType<AethersWhisper>();
+        yield return (short)ItemType<ApoctosisArray>();
+        yield return (short)ItemType<Effervescence>();
+        yield return (short)ItemType<EidolicWail>();
+        yield return (short)ItemType<Genesis>();
+        yield return (short)ItemType<PlasmaCaster>();
+        yield return (short)ItemType<PlasmaRifle>();
+        yield return (short)ItemType<PurgeGuzzler>();
+        yield return (short)ItemType<Thunderstorm>();
+        yield return (short)ItemType<AuguroftheElements>();
+        yield return (short)ItemType<Biofusillade>();
+        yield return (short)ItemType<NuclearFury>();
+        yield return (short)ItemType<RougeSlash>();
+        yield return (short)ItemType<ChronomancersScythe>();
+        yield return (short)ItemType<DarkSpark>();
+        yield return (short)ItemType<GhastlyVisage>();
+        yield return (short)ItemType<MadAlchemistsCocktailGlove>();
+        yield return (short)ItemType<TacticiansTrumpCard>();
+        yield return (short)ItemType<CalamarisLament>();
+        yield return (short)ItemType<Cosmilamp>();
+        yield return (short)ItemType<DazzlingStabberStaff>();
+        yield return (short)ItemType<DragonbloodDisgorger>();
+        yield return (short)ItemType<ElementalAxe>();
+        yield return (short)ItemType<Endogenesis>();
+        yield return (short)ItemType<EtherealSubjugator>();
+        yield return (short)ItemType<FlowersOfMortality>();
+        yield return (short)ItemType<GammaHeart>();
+        yield return (short)ItemType<KingofConstellationsTenryu>();
+        yield return (short)ItemType<MutatedTruffle>();
+        yield return (short)ItemType<Sirius>();
+        yield return (short)ItemType<SnakeEyes>();
+        yield return (short)ItemType<StellarTorusStaff>();
+        yield return (short)ItemType<TacticalPlagueEngine>();
+        yield return (short)ItemType<ViridVanguard>();
+        yield return (short)ItemType<VoidConcentrationStaff>();
+        yield return (short)ItemType<WarloksMoonFist>();
+        yield return (short)ItemType<AquasScepter>();
+        yield return (short)ItemType<CadaverousCarrion>();
+        yield return (short)ItemType<GuidelightofOblivion>();
+        yield return (short)ItemType<SanctifiedSpark>();
+        yield return (short)ItemType<SealedSingularity>();
+        yield return (short)ItemType<WavePounder>();
+        yield return (short)ItemType<ElementalDisk>();
+        yield return (short)ItemType<GhoulishGouger>();
+        yield return (short)ItemType<MoltenAmputator>();
+        yield return (short)ItemType<ToxicantTwister>();
+        yield return (short)ItemType<Valediction>();
+        yield return (short)ItemType<CosmicKunai>();
+        yield return (short)ItemType<JawsOfOblivion>();
+        yield return (short)ItemType<LunarKunai>();
+        yield return (short)ItemType<ShatteredSun>();
+        yield return (short)ItemType<TarragonThrowingDart>();
+        yield return (short)ItemType<TimeBolt>();
+        yield return (short)ItemType<TwistingThunder>();
+        yield return (short)ItemType<UtensilPoker>();
+        yield return (short)ItemType<NightsGaze>();
+        yield return (short)ItemType<ProfanedPartisan>();
+        yield return (short)ItemType<RealityRupture>();
+        yield return (short)ItemType<HellsSun>();
+        yield return (short)ItemType<AlphaVirus>();
+        yield return (short)ItemType<BloodsoakedCrasher>();
+        yield return (short)ItemType<CelestialReaper>();
+        yield return (short)ItemType<DeepSeaDumbbell>();
+        yield return (short)ItemType<TheOldReaper>();
+        yield return (short)ItemType<RelicOfDeliverance>();
+    }
+    [JITWhenModsEnabled("CalamityMod")]
+    private static IEnumerable<short> GetCalPD()
+    {
+        yield return (short)ItemType<Ataraxia>();
+        yield return (short)ItemType<DevilsDevastation>();
+        yield return (short)ItemType<DraconicDestruction>();
+        yield return (short)ItemType<Earth>();
+        yield return (short)ItemType<TheEnforcer>();
+        yield return (short)ItemType<EssenceFlayer>();
+        yield return (short)ItemType<Excelsus>();
+        yield return (short)ItemType<GaelsGreatsword>();
+        yield return (short)ItemType<IridescentExcalibur>();
+        yield return (short)ItemType<Orderbringer>();
+        yield return (short)ItemType<RedSun>();
+        yield return (short)ItemType<CosmicShiv>();
+        yield return (short)ItemType<TheObliterator>();
+        yield return (short)ItemType<TheOracle>();
+        yield return (short)ItemType<Ozzathoth>();
+        yield return (short)ItemType<Nadir>();
+        yield return (short)ItemType<TriactisTruePaladinianMageHammerofMightMelee>();
+        yield return (short)ItemType<CosmicDischarge>();
+        yield return (short)ItemType<DragonPow>();
+        yield return (short)ItemType<SpineOfThanatos>();
+        yield return (short)ItemType<ArkoftheCosmos>();
+        yield return (short)ItemType<TheBurningSky>();
+        yield return (short)ItemType<DragonRage>();
+        yield return (short)ItemType<EmpyreanKnives>();
+        yield return (short)ItemType<Exoblade>();
+        yield return (short)ItemType<FourSeasonsGalaxia>();
+        yield return (short)ItemType<GalaxySmasher>();
+        yield return (short)ItemType<IllustriousKnives>();
+        yield return (short)ItemType<Murasama>();
+        yield return (short)ItemType<Phaseslayer>();
+        yield return (short)ItemType<PhotonRipper>();
+        yield return (short)ItemType<ScourgeoftheCosmos>();
+        yield return (short)ItemType<StreamGouge>();
+        yield return (short)ItemType<Violence>();
+        yield return (short)ItemType<Alluvion>();
+        yield return (short)ItemType<Contagion>();
+        yield return (short)ItemType<Deathwind>();
+        yield return (short)ItemType<Drataliornus>();
+        yield return (short)ItemType<HeavenlyGale>();
+        yield return (short)ItemType<Phangasm>();
+        yield return (short)ItemType<Ultima>();
+        yield return (short)ItemType<Condemnation>();
+        yield return (short)ItemType<AcesHigh>();
+        yield return (short)ItemType<AntiMaterielRifle>();
+        yield return (short)ItemType<SurgeDriver>();
+        yield return (short)ItemType<Svantechnical>();
+        yield return (short)ItemType<TyrannysEnd>();
+        yield return (short)ItemType<UniversalGenesis>();
+        yield return (short)ItemType<Voidragon>();
+        yield return (short)ItemType<ChickenCannon>();
+        yield return (short)ItemType<MagnomalyCannon>();
+        yield return (short)ItemType<ScorchedEarth>();
+        yield return (short)ItemType<ThePack>();
+        yield return (short)ItemType<CleansingBlaze>();
+        yield return (short)ItemType<DragonsBreath>();
+        yield return (short)ItemType<Photoviscerator>();
+        yield return (short)ItemType<TheAnomalysNanogun>();
+        yield return (short)ItemType<Norfleet>();
+        yield return (short)ItemType<PulseRifle>();
+        yield return (short)ItemType<Starmada>();
+        yield return (short)ItemType<Starmageddon>();
+        yield return (short)ItemType<DeathhailStaff>();
+        yield return (short)ItemType<HeliumFlash>();
+        yield return (short)ItemType<IceBarrage>();
+        yield return (short)ItemType<NebulousCataclysm>();
+        yield return (short)ItemType<PhoenixFlameBarrage>();
+        yield return (short)ItemType<SoulPiercer>();
+        yield return (short)ItemType<StaffofBlushie>();
+        yield return (short)ItemType<Sylvestaff>();
+        yield return (short)ItemType<Vehemence>();
+        yield return (short)ItemType<VividClarity>();
+        yield return (short)ItemType<VoidVortex>();
+        yield return (short)ItemType<TheWand>();
+        yield return (short)ItemType<AetherfluxCannon>();
+        yield return (short)ItemType<Omicron>();
+        yield return (short)ItemType<RainbowPartyCannon>();
+        yield return (short)ItemType<TeslaCannon>();
+        yield return (short)ItemType<Apotheosis>();
+        yield return (short)ItemType<TheDanceofLight>();
+        yield return (short)ItemType<Eternity>();
+        yield return (short)ItemType<EventHorizon>();
+        yield return (short)ItemType<Heresy>();
+        yield return (short)ItemType<LightGodsBrilliance>();
+        yield return (short)ItemType<PrimordialAncient>();
+        yield return (short)ItemType<Rancor>();
+        yield return (short)ItemType<RecitationoftheBeast>();
+        yield return (short)ItemType<SubsumingVortex>();
+        yield return (short)ItemType<FaceMelter>();
+        yield return (short)ItemType<GruesomeEminence>();
+        yield return (short)ItemType<YharimsCrystal>();
+        yield return (short)ItemType<AresExoskeleton>();
+        yield return (short)ItemType<CorvidHarbringerStaff>();
+        yield return (short)ItemType<CosmicImmaterializer>();
+        yield return (short)ItemType<CosmicViperEngine>();
+        yield return (short)ItemType<EndoHydraStaff>();
+        yield return (short)ItemType<LiliesOfFinality>();
+        yield return (short)ItemType<Metastasis>();
+        yield return (short)ItemType<MidnightSunBeacon>();
+        yield return (short)ItemType<MirrorofKalandra>();
+        yield return (short)ItemType<Perdition>();
+        yield return (short)ItemType<PoleWarper>();
+        yield return (short)ItemType<SarosPossession>();
+        yield return (short)ItemType<StaffoftheMechworm>();
+        yield return (short)ItemType<TemporalUmbrella>();
+        yield return (short)ItemType<Vigilance>();
+        yield return (short)ItemType<YharonsKindleStaff>();
+        yield return (short)ItemType<AtlasMunitionsBeacon>();
+        yield return (short)ItemType<CindersOfLament>();
+        yield return (short)ItemType<FlamsteedRing>();
+        yield return (short)ItemType<UniverseSplitter>();
+        yield return (short)ItemType<Penumbra>();
+        yield return (short)ItemType<PlasmaGrenade>();
+        yield return (short)ItemType<Supernova>();
+        yield return (short)ItemType<Celestus>();
+        yield return (short)ItemType<DynamicPursuer>();
+        yield return (short)ItemType<Eradicator>();
+        yield return (short)ItemType<NanoblackReaper>();
+        yield return (short)ItemType<Sacrifice>();
+        yield return (short)ItemType<Seraphim>();
+        yield return (short)ItemType<TheAtomSplitter>();
+        yield return (short)ItemType<EclipsesFall>();
+        yield return (short)ItemType<ScarletDevil>();
+        yield return (short)ItemType<Wrathwing>();
+        yield return (short)ItemType<GodsParanoia>();
+        yield return (short)ItemType<ExecutionersBlade>();
+        yield return (short)ItemType<TheFinalDawn>();
+        yield return (short)ItemType<Hypothermia>();
+        yield return (short)ItemType<RefractionRotor>();
+        yield return (short)ItemType<PrismaticBreaker>();
+    }
     public static void CalamitySupport()
     {
-        PHWeapons.AddRange(
-        [
-            (short)ItemType<Basher>(),
-            (short)ItemType<BrokenBiomeBlade>(),
-            (short)ItemType<BurntSienna>(),
-            (short)ItemType<FellerofEvergreens>(),
-            (short)ItemType<GaussDagger>(),
-            (short)ItemType<GeliticBlade>(),
-            (short)ItemType<MycelialClaws>(),
-            (short)ItemType<PerfectDark>(),
-            (short)ItemType<SeashineSword>(),
-            (short)ItemType<TaintedBlade>(),
-            (short)ItemType<TeardropCleaver>(),
-            (short)ItemType<VeinBurster>(),
-            (short)ItemType<WindBlade>(),
-            (short)ItemType<SaharaSlicers>(),
-            (short)ItemType<AirSpinner>(),
-            (short)ItemType<Aorta>(),
-            (short)ItemType<TheGodsGambit>(),
-            (short)ItemType<Riptide>(),
-            (short)ItemType<SmokingComet>(),
-            (short)ItemType<AmidiasTrident>(),
-            (short)ItemType<GoldplumeSpear>(),
-            (short)ItemType<RedtideSpear>(),
-            (short)ItemType<SausageMaker>(),
-            (short)ItemType<YateveoBloom>(),
-            (short)ItemType<BallOFugu>(),
-            (short)ItemType<UrchinFlail>(),
-            (short)ItemType<UrchinMace>(),
-            (short)ItemType<BladecrestOathsword>(),
-            (short)ItemType<DepthCrusher>(),
-            (short)ItemType<FracturedArk>(),
-            (short)ItemType<MonstrousKnives>(),
-            (short)ItemType<OldLordClaymore>(),
-            (short)ItemType<WulfrumScrewdriver>(),
-            (short)ItemType<Barinade>(),
-            (short)ItemType<Galeforce>(),
-            (short)ItemType<Goobow>(),
-            (short)ItemType<LunarianBow>(),
-            (short)ItemType<Shellshooter>(),
-            (short)ItemType<Toxibow>(),
-            (short)ItemType<AquashardShotgun>(),
-            (short)ItemType<Archerfish>(),
-            (short)ItemType<BulletFilledShotgun>(),
-            (short)ItemType<CrackshotColt>(),
-            (short)ItemType<Eviscerator>(),
-            (short)ItemType<Fungicide>(),
-            (short)ItemType<GunkShot>(),
-            (short)ItemType<DragoonDrizzlefish>(),
-            (short)ItemType<OverloadedBlaster>(),
-            (short)ItemType<Shadethrower>(),
-            (short)ItemType<SparkSpreader>(),
-            (short)ItemType<CoralCannon>(),
-            (short)ItemType<FirestormCannon>(),
-            (short)ItemType<FlurrystormCannon>(),
-            (short)ItemType<MagnaCannon>(),
-            (short)ItemType<OpalStriker>(),
-            (short)ItemType<Pumpler>(),
-            (short)ItemType<ReedBlowgun>(),
-            (short)ItemType<StormSurge>(),
-            (short)ItemType<Taser>(),
-            (short)ItemType<WulfrumBlunderbuss>(),
-            (short)ItemType<AquamarineStaff>(),
-            (short)ItemType<BloodBath>(),
-            (short)ItemType<HellwingStaff>(),
-            (short)ItemType<HyphaeRod>(),
-            (short)ItemType<IcicleStaff>(),
-            (short)ItemType<ManaRose>(),
-            (short)ItemType<NightsRay>(),
-            (short)ItemType<ParasiticSceptor>(),
-            (short)ItemType<PlasmaRod>(),
-            (short)ItemType<SandstreamScepter>(),
-            (short)ItemType<ShaderainStaff>(),
-            (short)ItemType<SkyGlaze>(),
-            (short)ItemType<AbyssShocker>(),
-            (short)ItemType<AcidGun>(),
-            (short)ItemType<PulsePistol>(),
-            (short)ItemType<AbyssalTome>(),
-            (short)ItemType<CoralSpout>(),
-            (short)ItemType<EldritchTome>(),
-            (short)ItemType<FlareBolt>(),
-            (short)ItemType<FrostBolt>(),
-            (short)ItemType<Tradewinds>(),
-            (short)ItemType<VeeringWind>(),
-            (short)ItemType<Waywasher>(),
-            (short)ItemType<BlackAnurian>(),
-            (short)ItemType<TheCauldron>(),
-            (short)ItemType<SparklingEmpress>(),
-            (short)ItemType<WulfrumProsthesis>(),
-            (short)ItemType<BelladonnaSpiritStaff>(),
-            (short)ItemType<BrittleStarStaff>(),
-            (short)ItemType<CinderBlossomStaff>(),
-            (short)ItemType<CorroslimeStaff>(),
-            (short)ItemType<CrimslimeStaff>(),
-            (short)ItemType<DankStaff>(),
-            (short)ItemType<DeathstareRod>(),
-            (short)ItemType<EnchantedConch>(),
-            (short)ItemType<EyeOfNight>(),
-            (short)ItemType<FleshOfInfidelity>(),
-            (short)ItemType<FrostBlossomStaff>(),
-            (short)ItemType<HerringStaff>(),
-            (short)ItemType<PuffShroom>(),
-            (short)ItemType<ScabRipper>(),
-            (short)ItemType<StaffOfNecrosteocytes>(),
-            (short)ItemType<StarSwallowerContainmentUnit>(),
-            (short)ItemType<StormjawStaff>(),
-            (short)ItemType<SunSpiritStaff>(),
-            (short)ItemType<VileFeeder>(),
-            (short)ItemType<WulfrumController>(),
-            (short)ItemType<CausticCroakerStaff>(),
-            (short)ItemType<HarvestStaff>(),
-            (short)ItemType<PolypLauncher>(),
-            (short)ItemType<RustyBeaconPrototype>(),
-            (short)ItemType<SquirrelSquireStaff>(),
-            (short)ItemType<Cnidarian>(),
-            (short)ItemType<SlimePuppetStaff>(),
-            (short)ItemType<ContaminatedBile>(),
-            (short)ItemType<MeteorFist>(),
-            (short)ItemType<SeafoamBomb>(),
-            (short)ItemType<EnchantedAxe>(),
-            (short)ItemType<FishboneBoomerang>(),
-            (short)ItemType<Glaive>(),
-            (short)ItemType<InfestedClawmerang>(),
-            (short)ItemType<Kylie>(),
-            (short)ItemType<SandDollar>(),
-            (short)ItemType<TrackingDisk>(),
-            (short)ItemType<AshenStalactite>(),
-            (short)ItemType<Cinquedea>(),
-            (short)ItemType<Crystalline>(),
-            (short)ItemType<FeatherKnife>(),
-            (short)ItemType<GelDart>(),
-            (short)ItemType<GildedDagger>(),
-            (short)ItemType<GleamingDagger>(),
-            (short)ItemType<InfernalKris>(),
-            (short)ItemType<Mycoroot>(),
-            (short)ItemType<ShinobiBlade>(),
-            (short)ItemType<WulfrumKnife>(),
-            (short)ItemType<ScourgeoftheDesert>(),
-            (short)ItemType<Turbulance>(),
-            (short)ItemType<BouncySpikyBall>(),
-            (short)ItemType<MetalMonstrosity>(),
-            (short)ItemType<NastyCholla>(),
-            (short)ItemType<PoisonPack>(),
-            (short)ItemType<SkyStabber>(),
-            (short)ItemType<StickySpikyBall>(),
-            (short)ItemType<WebBall>(),
-            (short)ItemType<BouncingEyeball>(),
-            (short)ItemType<HardenedHoneycomb>(),
-            (short)ItemType<IronFrancisca>(),
-            (short)ItemType<LeadTomahawk>(),
-            (short)ItemType<Lionfish>(),
-            (short)ItemType<RotBall>(),
-            (short)ItemType<SlickCane>(),
-            (short)ItemType<SludgeSplotch>(),
-            (short)ItemType<SnapClam>(),
-            (short)ItemType<ThrowingBrick>(),
-            (short)ItemType<ToothBall>(),
-            (short)ItemType<UrchinStinger>(),
-            (short)ItemType<Aestheticus>(),
-        ]);
-
-        HMWeapons.AddRange(
-        [
-            (short)ItemType<AbsoluteZero>(),
-            (short)ItemType<AegisBlade>(),
-            (short)ItemType<Aftershock>(),
-            (short)ItemType<AnarchyBlade>(),
-            (short)ItemType<AstralBlade>(),
-            (short)ItemType<AstralScythe>(),
-            (short)ItemType<Avalanche>(),
-            (short)ItemType<AxeofPurity>(),
-            (short)ItemType<BalefulHarvester>(),
-            (short)ItemType<TrueBiomeBlade>(),
-            (short)ItemType<BlightedCleaver>(),
-            (short)ItemType<Brimlash>(),
-            (short)ItemType<BrimstoneSword>(),
-            (short)ItemType<BrinyBaron>(),
-            (short)ItemType<Carnage>(),
-            (short)ItemType<CatastropheClaymore>(),
-            (short)ItemType<TrueCausticEdge>(),
-            (short)ItemType<CelestialClaymore>(),
-            (short)ItemType<CometQuasher>(),
-            (short)ItemType<TheDarkMaster>(),
-            (short)ItemType<DarklightGreatsword>(),
-            (short)ItemType<EntropicClaymore>(),
-            (short)ItemType<EutrophicScimitar>(),
-            (short)ItemType<EvilSmasher>(),
-            (short)ItemType<ExaltedOathblade>(),
-            (short)ItemType<FeralthornClaymore>(),
-            (short)ItemType<FlarefrostBlade>(),
-            (short)ItemType<Floodtide>(),
-            (short)ItemType<ForbiddenOathblade>(),
-            (short)ItemType<ForsakenSaber>(),
-            (short)ItemType<GrandGuardian>(),
-            (short)ItemType<Greentide>(),
-            (short)ItemType<HellfireFlamberge>(),
-            (short)ItemType<Hellkite>(),
-            (short)ItemType<InfernaCutter>(),
-            (short)ItemType<MajesticGuard>(),
-            (short)ItemType<MantisClaws>(),
-            (short)ItemType<Roxcalibur>(),
-            (short)ItemType<SoulHarvester>(),
-            (short)ItemType<StormRuler>(),
-            (short)ItemType<StormSaber>(),
-            (short)ItemType<TitanArm>(),
-            (short)ItemType<OmegaBiomeBlade>(),
-            (short)ItemType<UltimusCleaver>(),
-            (short)ItemType<Virulence>(),
-            (short)ItemType<Lucrecia>(),
-            (short)ItemType<SubmarineShocker>(),
-            (short)ItemType<FaultLine>(),
-            (short)ItemType<TheMicrowave>(),
-            (short)ItemType<Oblivion>(),
-            (short)ItemType<Pandemic>(),
-            (short)ItemType<Quagmire>(),
-            (short)ItemType<Shimmerspark>(),
-            (short)ItemType<SulphurousGrabber>(),
-            (short)ItemType<YinYo>(),
-            (short)ItemType<AstralPike>(),
-            (short)ItemType<BotanicPiercer>(),
-            (short)ItemType<Brimlance>(),
-            (short)ItemType<DiseasedPike>(),
-            (short)ItemType<EarthenPike>(),
-            (short)ItemType<GalvanizingGlaive>(),
-            (short)ItemType<HellionFlowerSpear>(),
-            (short)ItemType<StarnightLance>(),
-            (short)ItemType<TenebreusTides>(),
-            (short)ItemType<VulcaniteLance>(),
-            (short)ItemType<ClamCrusher>(),
-            (short)ItemType<Nebulash>(),
-            (short)ItemType<Tumbleweed>(),
-            (short)ItemType<AbyssBlade>(),
-            (short)ItemType<TrueArkoftheAncients>(),
-            (short)ItemType<Bonebreaker>(),
-            (short)ItemType<FallenPaladinsHammer>(),
-            (short)ItemType<Omniblade>(),
-            (short)ItemType<Pwnagehammer>(),
-            (short)ItemType<Respiteblock>(),
-            (short)ItemType<StygianShield>(),
-            (short)ItemType<TyphonsGreed>(),
-            (short)ItemType<AstralBow>(),
-            (short)ItemType<TheBallista>(),
-            (short)ItemType<Barinautical>(),
-            (short)ItemType<BlossomFlux>(),
-            (short)ItemType<BrimstoneFury>(),
-            (short)ItemType<ContinentalGreatbow>(),
-            (short)ItemType<CorrodedCaustibow>(),
-            (short)ItemType<DarkechoGreatbow>(),
-            (short)ItemType<FlarewingBow>(),
-            (short)ItemType<HoarfrostBow>(),
-            (short)ItemType<Malevolence>(),
-            (short)ItemType<MarksmanBow>(),
-            (short)ItemType<VernalBolter>(),
-            (short)ItemType<Arbalest>(),
-            (short)ItemType<BladedgeRailbow>(),
-            (short)ItemType<EternalBlizzard>(),
-            (short)ItemType<Animosity>(),
-            (short)ItemType<Arietes41>(),
-            (short)ItemType<AstralBlaster>(),
-            (short)ItemType<ClamorRifle>(),
-            (short)ItemType<ClockGatlignum>(),
-            (short)ItemType<ConferenceCall>(),
-            (short)ItemType<DeepcoreGK2>(),
-            (short)ItemType<FrostbiteBlaster>(),
-            (short)ItemType<Hellborn>(),
-            (short)ItemType<Helstorm>(),
-            (short)ItemType<Hydra>(),
-            (short)ItemType<Leviatitan>(),
-            (short)ItemType<Megalodon>(),
-            (short)ItemType<MidasPrime>(),
-            (short)ItemType<Needler>(),
-            (short)ItemType<NitroExpressRifle>(),
-            (short)ItemType<P90>(),
-            (short)ItemType<PestilentDefiler>(),
-            (short)ItemType<PlagueTaintedSMG>(),
-            (short)ItemType<RealmRavager>(),
-            (short)ItemType<Shroomer>(),
-            (short)ItemType<SlagMagnum>(),
-            (short)ItemType<ThermoclineBlaster>(),
-            (short)ItemType<Vortexpopper>(),
-            (short)ItemType<FlakKraken>(),
-            (short)ItemType<FlakToxicannon>(),
-            (short)ItemType<TheHive>(),
-            (short)ItemType<MineralMortar>(),
-            (short)ItemType<Scorpio>(),
-            (short)ItemType<AuroraBlazer>(),
-            (short)ItemType<BlightSpewer>(),
-            (short)ItemType<DeadSunsWind>(),
-            (short)ItemType<HavocsBreath>(),
-            (short)ItemType<Meowthrower>(),
-            (short)ItemType<WildfireBloom>(),
-            (short)ItemType<AdamantiteParticleAccelerator>(),
-            (short)ItemType<ArcNovaDiffuser>(),
-            (short)ItemType<BarracudaGun>(),
-            (short)ItemType<Buzzkill>(),
-            (short)ItemType<GaussRifle>(),
-            (short)ItemType<MatterModulator>(),
-            (short)ItemType<NullificationPistol>(),
-            (short)ItemType<PolarisParrotfish>(),
-            (short)ItemType<SandstormGun>(),
-            (short)ItemType<SeasSearing>(),
-            (short)ItemType<SpectralstormCannon>(),
-            (short)ItemType<SpeedBlaster>(),
-            (short)ItemType<StarSputter>(),
-            (short)ItemType<StellarCannon>(),
-            (short)ItemType<TitaniumRailgun>(),
-            (short)ItemType<AlulaAustralis>(),
-            (short)ItemType<ArchAmaryllis>(),
-            (short)ItemType<ArtAttack>(),
-            (short)ItemType<AstralStaff>(),
-            (short)ItemType<AstralachneaStaff>(),
-            (short)ItemType<Atlantis>(),
-            (short)ItemType<BrimroseStaff>(),
-            (short)ItemType<Downpour>(),
-            (short)ItemType<GleamingMagnolia>(),
-            (short)ItemType<GloriousEnd>(),
-            (short)ItemType<Hematemesis>(),
-            (short)ItemType<IcicleTrident>(),
-            (short)ItemType<InfernalRift>(),
-            (short)ItemType<Keelhaul>(),
-            (short)ItemType<Miasma>(),
-            (short)ItemType<Photosynthesis>(),
-            (short)ItemType<PlagueStaff>(),
-            (short)ItemType<ShiftingSands>(),
-            (short)ItemType<SnowstormStaff>(),
-            (short)ItemType<UndinesRetribution>(),
-            (short)ItemType<ValkyrieRay>(),
-            (short)ItemType<Vesuvius>(),
-            (short)ItemType<WyvernsCall>(),
-            (short)ItemType<Cryophobia>(),
-            (short)ItemType<GatlingLaser>(),
-            (short)ItemType<GaussPistol>(),
-            (short)ItemType<IonBlaster>(),
-            (short)ItemType<Lazhar>(),
-            (short)ItemType<NanoPurge>(),
-            (short)ItemType<SHPC>(),
-            (short)ItemType<TheSwarmer>(),
-            (short)ItemType<Wingman>(),
-            (short)ItemType<BurningSea>(),
-            (short)ItemType<DeathValleyDuster>(),
-            (short)ItemType<EvergladeSpray>(),
-            (short)ItemType<ForbiddenSun>(),
-            (short)ItemType<FrigidflashBolt>(),
-            (short)ItemType<LashesofChaos>(),
-            (short)ItemType<Poseidon>(),
-            (short)ItemType<PrimordialEarth>(),
-            (short)ItemType<RelicofRuin>(),
-            (short)ItemType<SeethingDischarge>(),
-            (short)ItemType<Serpentine>(),
-            (short)ItemType<ShadecrystalBarrage>(),
-            (short)ItemType<SlitheringEels>(),
-            (short)ItemType<StarShower>(),
-            (short)ItemType<TearsofHeaven>(),
-            (short)ItemType<TomeofFates>(),
-            (short)ItemType<WintersFury>(),
-            (short)ItemType<WrathoftheAncients>(),
-            (short)ItemType<AnahitasArpeggio>(),
-            (short)ItemType<ArcticBearPaw>(),
-            (short)ItemType<BelchingSaxophone>(),
-            (short)ItemType<ClothiersWrath>(),
-            (short)ItemType<CosmicRainbow>(),
-            (short)ItemType<HadalUrn>(),
-            (short)ItemType<AbandonedSlimeStaff>(),
-            (short)ItemType<AncientIceChunk>(),
-            (short)ItemType<BlackHawkRemote>(),
-            (short)ItemType<CausticStaff>(),
-            (short)ItemType<DaedalusGolemStaff>(),
-            (short)ItemType<DeepseaStaff>(),
-            (short)ItemType<DormantBrimseeker>(),
-            (short)ItemType<EntropysVigil>(),
-            (short)ItemType<ForgottenApexWand>(),
-            (short)ItemType<FuelCellBundle>(),
-            (short)ItemType<GastricBelcherStaff>(),
-            (short)ItemType<GlacialEmbrace>(),
-            (short)ItemType<HauntedScroll>(),
-            (short)ItemType<IgneousExaltation>(),
-            (short)ItemType<InfectedRemote>(),
-            (short)ItemType<MountedScanner>(),
-            (short)ItemType<PlantationStaff>(),
-            (short)ItemType<ResurrectionButterfly>(),
-            (short)ItemType<SandSharknadoStaff>(),
-            (short)ItemType<ShellfishStaff>(),
-            (short)ItemType<StarspawnHelixStaff>(),
-            (short)ItemType<TundraFlameBlossomsStaff>(),
-            (short)ItemType<VengefulSunStaff>(),
-            (short)ItemType<ViralSprout>(),
-            (short)ItemType<WitherBlossomsStaff>(),
-            (short)ItemType<CryogenicStaff>(),
-            (short)ItemType<DreadmineStaff>(),
-            (short)ItemType<HivePod>(),
-            (short)ItemType<OrthoceraShell>(),
-            (short)ItemType<PulseTurretRemote>(),
-            (short)ItemType<SpikecragStaff>(),
-            (short)ItemType<BorealisBomber>(),
-            (short)ItemType<AcidicRainBarrel>(),
-            (short)ItemType<BallisticPoisonBomb>(),
-            (short)ItemType<BlastBarrel>(),
-            (short)ItemType<BrackishFlask>(),
-            (short)ItemType<ConsecratedWater>(),
-            (short)ItemType<CraniumSmasher>(),
-            (short)ItemType<DesecratedWater>(),
-            (short)ItemType<DuststormInABottle>(),
-            (short)ItemType<Exorcism>(),
-            (short)ItemType<Plaguenade>(),
-            (short)ItemType<ShockGrenade>(),
-            (short)ItemType<SkyfinBombers>(),
-            (short)ItemType<SpentFuelContainer>(),
-            (short)ItemType<StarofDestruction>(),
-            (short)ItemType<TotalityBreakers>(),
-            (short)ItemType<BlazingStar>(),
-            (short)ItemType<Brimblade>(),
-            (short)ItemType<DefectiveSphere>(),
-            (short)ItemType<EpidemicShredder>(),
-            (short)ItemType<Equanimity>(),
-            (short)ItemType<FrostcrushValari>(),
-            (short)ItemType<Icebreaker>(),
-            (short)ItemType<KelvinCatalyst>(),
-            (short)ItemType<MangroveChakram>(),
-            (short)ItemType<SamsaraSlicer>(),
-            (short)ItemType<SubductionSlicer>(),
-            (short)ItemType<CobaltKunai>(),
-            (short)ItemType<CorpusAvertor>(),
-            (short)ItemType<CursedDagger>(),
-            (short)ItemType<LeviathanTeeth>(),
-            (short)ItemType<Malachite>(),
-            (short)ItemType<MonkeyDarts>(),
-            (short)ItemType<MythrilKnife>(),
-            (short)ItemType<OrichalcumSpikedGemstone>(),
-            (short)ItemType<Prismalline>(),
-            (short)ItemType<RadiantStar>(),
-            (short)ItemType<StellarKnife>(),
-            (short)ItemType<StormfrontRazor>(),
-            (short)ItemType<CrystalPiercer>(),
-            (short)ItemType<FrequencyManipulator>(),
-            (short)ItemType<IchorSpear>(),
-            (short)ItemType<PalladiumJavelin>(),
-            (short)ItemType<PhantasmalRuin>(),
-            (short)ItemType<ScourgeoftheSeas>(),
-            (short)ItemType<ShardofAntumbra>(),
-            (short)ItemType<SpearofDestiny>(),
-            (short)ItemType<SpearofPaleolith>(),
-            (short)ItemType<WaveSkipper>(),
-            (short)ItemType<BurningStrife>(),
-            (short)ItemType<Nychthemeron>(),
-            (short)ItemType<SystemBane>(),
-            (short)ItemType<AdamantiteThrowingAxe>(),
-            (short)ItemType<Apoctolith>(),
-            (short)ItemType<AuroradicalThrow>(),
-            (short)ItemType<CrushsawCrasher>(),
-            (short)ItemType<DeepWounder>(),
-            (short)ItemType<DukesDecapitator>(),
-            (short)ItemType<FantasyTalisman>(),
-            (short)ItemType<FrostyFlare>(),
-            (short)ItemType<GacruxianMollusk>(),
-            (short)ItemType<GraveGrimreaver>(),
-            (short)ItemType<HeavenfallenStardisk>(),
-            (short)ItemType<IceStar>(),
-            (short)ItemType<LeonidProgenitor>(),
-            (short)ItemType<RegulusRiot>(),
-            (short)ItemType<Sandslasher>(),
-            (short)ItemType<TheSyringe>(),
-            (short)ItemType<TerrorTalons>(),
-            (short)ItemType<TitaniumShuriken>(),
-            (short)ItemType<EyeofMagnus>(),
-            (short)ItemType<LunicEye>(),
-        ]);
-
-        PostMLWeapons.AddRange(
-        [
-            (short)ItemType<DefiledGreatsword>(),
-            (short)ItemType<Devastation>(),
-            (short)ItemType<GalactusBlade>(),
-            (short)ItemType<Grax>(),
-            (short)ItemType<GreatswordofJudgement>(),
-            (short)ItemType<HolyCollider>(),
-            (short)ItemType<TheLastMourning>(),
-            (short)ItemType<LifehuntScythe>(),
-            (short)ItemType<LionHeart>(),
-            (short)ItemType<MirrorBlade>(),
-            (short)ItemType<TheMutilator>(),
-            (short)ItemType<PlagueKeeper>(),
-            (short)ItemType<SolsticeClaymore>(),
-            (short)ItemType<StellarStriker>(),
-            (short)ItemType<Swordsplosion>(),
-            (short)ItemType<Terratomere>(),
-            (short)ItemType<TerrorBlade>(),
-            (short)ItemType<VoidEdge>(),
-            (short)ItemType<ElementalShiv>(),
-            (short)ItemType<GalileoGladius>(),
-            (short)ItemType<BurningRevelation>(),
-            (short)ItemType<Lacerator>(),
-            (short)ItemType<BansheeHook>(),
-            (short)ItemType<ElementalLance>(),
-            (short)ItemType<GildedProboscis>(),
-            (short)ItemType<SeekingScorcher>(),
-            (short)ItemType<CrescentMoon>(),
-            (short)ItemType<Mourningstar>(),
-            (short)ItemType<PulseDragon>(),
-            (short)ItemType<RemsRevenge>(),
-            (short)ItemType<ArkoftheElements>(),
-            (short)ItemType<DeathsAscension>(),
-            (short)ItemType<DevilsSunrise>(),
-            (short)ItemType<InsidiousImpaler>(),
-            (short)ItemType<NeptunesBounty>(),
-            (short)ItemType<PhosphorescentGauntlet>(),
-            (short)ItemType<StellarContempt>(),
-            (short)ItemType<ArterialAssault>(),
-            (short)ItemType<AstrealDefeat>(),
-            (short)ItemType<ClockworkBow>(),
-            (short)ItemType<DaemonsFlame>(),
-            (short)ItemType<TheMaelstrom>(),
-            (short)ItemType<Monsoon>(),
-            (short)ItemType<NettlevineGreatbow>(),
-            (short)ItemType<PlanetaryAnnihilation>(),
-            (short)ItemType<TheStorm>(),
-            (short)ItemType<TelluricGlare>(),
-            (short)ItemType<AngelicShotgun>(),
-            (short)ItemType<Auralis>(),
-            (short)ItemType<ClaretCannon>(),
-            (short)ItemType<CorinthPrime>(),
-            (short)ItemType<Disseminator>(),
-            (short)ItemType<FetidEmesis>(),
-            (short)ItemType<GoldenEagle>(),
-            (short)ItemType<HalibutCannon>(),
-            (short)ItemType<Infinity>(),
-            (short)ItemType<TheJailor>(),
-            (short)ItemType<Karasawa>(),
-            (short)ItemType<Kingsbane>(),
-            (short)ItemType<OnyxChainBlaster>(),
-            (short)ItemType<Onyxia>(),
-            (short)ItemType<PearlGod>(),
-            (short)ItemType<PridefulHuntersPlanarRipper>(),
-            (short)ItemType<RubicoPrime>(),
-            (short)ItemType<SDFMG>(),
-            (short)ItemType<Seadragon>(),
-            (short)ItemType<TheSevensStriker>(),
-            (short)ItemType<Shredder>(),
-            (short)ItemType<SomaPrime>(),
-            (short)ItemType<Spyker>(),
-            (short)ItemType<StormDragoon>(),
-            (short)ItemType<BlissfulBombardier>(),
-            (short)ItemType<HandheldTank>(),
-            (short)ItemType<BloodBoiler>(),
-            (short)ItemType<ElementalEruption>(),
-            (short)ItemType<HalleysInferno>(),
-            (short)ItemType<PristineFury>(),
-            (short)ItemType<FreedomStar>(),
-            (short)ItemType<HeavyLaserRifle>(),
-            (short)ItemType<MolecularManipulator>(),
-            (short)ItemType<SepticSkewer>(),
-            (short)ItemType<Starfleet>(),
-            (short)ItemType<SulphuricAcidCannon>(),
-            (short)ItemType<SuperradiantSlaughterer>(),
-            (short)ItemType<AsteroidStaff>(),
-            (short)ItemType<ClamorNoctus>(),
-            (short)ItemType<EidolonStaff>(),
-            (short)ItemType<ElementalRay>(),
-            (short)ItemType<FatesReveal>(),
-            (short)ItemType<MagneticMeltdown>(),
-            (short)ItemType<Mistlestorm>(),
-            (short)ItemType<PhantasmalFury>(),
-            (short)ItemType<ThePrince>(),
-            (short)ItemType<SanguineFlare>(),
-            (short)ItemType<ShadowboltStaff>(),
-            (short)ItemType<Teslastaff>(),
-            (short)ItemType<ThornBlossom>(),
-            (short)ItemType<UltraLiquidator>(),
-            (short)ItemType<VenusianTrident>(),
-            (short)ItemType<Viscera>(),
-            (short)ItemType<VitriolicViper>(),
-            (short)ItemType<VoltaicClimax>(),
-            (short)ItemType<AethersWhisper>(),
-            (short)ItemType<ApoctosisArray>(),
-            (short)ItemType<Effervescence>(),
-            (short)ItemType<EidolicWail>(),
-            (short)ItemType<Genesis>(),
-            (short)ItemType<PlasmaCaster>(),
-            (short)ItemType<PlasmaRifle>(),
-            (short)ItemType<PurgeGuzzler>(),
-            (short)ItemType<Thunderstorm>(),
-            (short)ItemType<AuguroftheElements>(),
-            (short)ItemType<Biofusillade>(),
-            (short)ItemType<NuclearFury>(),
-            (short)ItemType<RougeSlash>(),
-            (short)ItemType<ChronomancersScythe>(),
-            (short)ItemType<DarkSpark>(),
-            (short)ItemType<GhastlyVisage>(),
-            (short)ItemType<MadAlchemistsCocktailGlove>(),
-            (short)ItemType<TacticiansTrumpCard>(),
-            (short)ItemType<CalamarisLament>(),
-            (short)ItemType<Cosmilamp>(),
-            (short)ItemType<DazzlingStabberStaff>(),
-            (short)ItemType<DragonbloodDisgorger>(),
-            (short)ItemType<ElementalAxe>(),
-            (short)ItemType<Endogenesis>(),
-            (short)ItemType<EtherealSubjugator>(),
-            (short)ItemType<FlowersOfMortality>(),
-            (short)ItemType<GammaHeart>(),
-            (short)ItemType<KingofConstellationsTenryu>(),
-            (short)ItemType<MutatedTruffle>(),
-            (short)ItemType<Sirius>(),
-            (short)ItemType<SnakeEyes>(),
-            (short)ItemType<StellarTorusStaff>(),
-            (short)ItemType<TacticalPlagueEngine>(),
-            (short)ItemType<ViridVanguard>(),
-            (short)ItemType<VoidConcentrationStaff>(),
-            (short)ItemType<WarloksMoonFist>(),
-            (short)ItemType<AquasScepter>(),
-            (short)ItemType<CadaverousCarrion>(),
-            (short)ItemType<GuidelightofOblivion>(),
-            (short)ItemType<SanctifiedSpark>(),
-            (short)ItemType<SealedSingularity>(),
-            (short)ItemType<WavePounder>(),
-            (short)ItemType<ElementalDisk>(),
-            (short)ItemType<GhoulishGouger>(),
-            (short)ItemType<MoltenAmputator>(),
-            (short)ItemType<ToxicantTwister>(),
-            (short)ItemType<Valediction>(),
-            (short)ItemType<CosmicKunai>(),
-            (short)ItemType<JawsOfOblivion>(),
-            (short)ItemType<LunarKunai>(),
-            (short)ItemType<ShatteredSun>(),
-            (short)ItemType<TarragonThrowingDart>(),
-            (short)ItemType<TimeBolt>(),
-            (short)ItemType<TwistingThunder>(),
-            (short)ItemType<UtensilPoker>(),
-            (short)ItemType<NightsGaze>(),
-            (short)ItemType<ProfanedPartisan>(),
-            (short)ItemType<RealityRupture>(),
-            (short)ItemType<HellsSun>(),
-            (short)ItemType<AlphaVirus>(),
-            (short)ItemType<BloodsoakedCrasher>(),
-            (short)ItemType<CelestialReaper>(),
-            (short)ItemType<DeepSeaDumbbell>(),
-            (short)ItemType<TheOldReaper>(),
-            (short)ItemType<RelicOfDeliverance>(),
-        ]);
-
-        PostDoGWeapons.AddRange(
-        [
-            (short)ItemType<Ataraxia>(),
-            (short)ItemType<DevilsDevastation>(),
-            (short)ItemType<DraconicDestruction>(),
-            (short)ItemType<Earth>(),
-            (short)ItemType<TheEnforcer>(),
-            (short)ItemType<EssenceFlayer>(),
-            (short)ItemType<Excelsus>(),
-            (short)ItemType<GaelsGreatsword>(),
-            (short)ItemType<IridescentExcalibur>(),
-            (short)ItemType<Orderbringer>(),
-            (short)ItemType<RedSun>(),
-            (short)ItemType<CosmicShiv>(),
-            (short)ItemType<TheObliterator>(),
-            (short)ItemType<TheOracle>(),
-            (short)ItemType<Ozzathoth>(),
-            (short)ItemType<Nadir>(),
-            (short)ItemType<TriactisTruePaladinianMageHammerofMightMelee>(),
-            (short)ItemType<CosmicDischarge>(),
-            (short)ItemType<DragonPow>(),
-            (short)ItemType<SpineOfThanatos>(),
-            (short)ItemType<ArkoftheCosmos>(),
-            (short)ItemType<TheBurningSky>(),
-            (short)ItemType<DragonRage>(),
-            (short)ItemType<EmpyreanKnives>(),
-            (short)ItemType<Exoblade>(),
-            (short)ItemType<FourSeasonsGalaxia>(),
-            (short)ItemType<GalaxySmasher>(),
-            (short)ItemType<IllustriousKnives>(),
-            (short)ItemType<Murasama>(),
-            (short)ItemType<Phaseslayer>(),
-            (short)ItemType<PhotonRipper>(),
-            (short)ItemType<ScourgeoftheCosmos>(),
-            (short)ItemType<StreamGouge>(),
-            (short)ItemType<Violence>(),
-            (short)ItemType<Alluvion>(),
-            (short)ItemType<Contagion>(),
-            (short)ItemType<Deathwind>(),
-            (short)ItemType<Drataliornus>(),
-            (short)ItemType<HeavenlyGale>(),
-            (short)ItemType<Phangasm>(),
-            (short)ItemType<Ultima>(),
-            (short)ItemType<Condemnation>(),
-            (short)ItemType<AcesHigh>(),
-            (short)ItemType<AntiMaterielRifle>(),
-            (short)ItemType<SurgeDriver>(),
-            (short)ItemType<Svantechnical>(),
-            (short)ItemType<TyrannysEnd>(),
-            (short)ItemType<UniversalGenesis>(),
-            (short)ItemType<Voidragon>(),
-            (short)ItemType<ChickenCannon>(),
-            (short)ItemType<MagnomalyCannon>(),
-            (short)ItemType<ScorchedEarth>(),
-            (short)ItemType<ThePack>(),
-            (short)ItemType<CleansingBlaze>(),
-            (short)ItemType<DragonsBreath>(),
-            (short)ItemType<Photoviscerator>(),
-            (short)ItemType<TheAnomalysNanogun>(),
-            (short)ItemType<Norfleet>(),
-            (short)ItemType<PulseRifle>(),
-            (short)ItemType<Starmada>(),
-            (short)ItemType<Starmageddon>(),
-            (short)ItemType<DeathhailStaff>(),
-            (short)ItemType<HeliumFlash>(),
-            (short)ItemType<IceBarrage>(),
-            (short)ItemType<NebulousCataclysm>(),
-            (short)ItemType<PhoenixFlameBarrage>(),
-            (short)ItemType<SoulPiercer>(),
-            (short)ItemType<StaffofBlushie>(),
-            (short)ItemType<Sylvestaff>(),
-            (short)ItemType<Vehemence>(),
-            (short)ItemType<VividClarity>(),
-            (short)ItemType<VoidVortex>(),
-            (short)ItemType<TheWand>(),
-            (short)ItemType<AetherfluxCannon>(),
-            (short)ItemType<Omicron>(),
-            (short)ItemType<RainbowPartyCannon>(),
-            (short)ItemType<TeslaCannon>(),
-            (short)ItemType<Apotheosis>(),
-            (short)ItemType<TheDanceofLight>(),
-            (short)ItemType<Eternity>(),
-            (short)ItemType<EventHorizon>(),
-            (short)ItemType<Heresy>(),
-            (short)ItemType<LightGodsBrilliance>(),
-            (short)ItemType<PrimordialAncient>(),
-            (short)ItemType<Rancor>(),
-            (short)ItemType<RecitationoftheBeast>(),
-            (short)ItemType<SubsumingVortex>(),
-            (short)ItemType<FaceMelter>(),
-            (short)ItemType<GruesomeEminence>(),
-            (short)ItemType<YharimsCrystal>(),
-            (short)ItemType<AresExoskeleton>(),
-            (short)ItemType<CorvidHarbringerStaff>(),
-            (short)ItemType<CosmicImmaterializer>(),
-            (short)ItemType<CosmicViperEngine>(),
-            (short)ItemType<EndoHydraStaff>(),
-            (short)ItemType<LiliesOfFinality>(),
-            (short)ItemType<Metastasis>(),
-            (short)ItemType<MidnightSunBeacon>(),
-            (short)ItemType<MirrorofKalandra>(),
-            (short)ItemType<Perdition>(),
-            (short)ItemType<PoleWarper>(),
-            (short)ItemType<SarosPossession>(),
-            (short)ItemType<StaffoftheMechworm>(),
-            (short)ItemType<TemporalUmbrella>(),
-            (short)ItemType<Vigilance>(),
-            (short)ItemType<YharonsKindleStaff>(),
-            (short)ItemType<AtlasMunitionsBeacon>(),
-            (short)ItemType<CindersOfLament>(),
-            (short)ItemType<FlamsteedRing>(),
-            (short)ItemType<UniverseSplitter>(),
-            (short)ItemType<Penumbra>(),
-            (short)ItemType<PlasmaGrenade>(),
-            (short)ItemType<Supernova>(),
-            (short)ItemType<Celestus>(),
-            (short)ItemType<DynamicPursuer>(),
-            (short)ItemType<Eradicator>(),
-            (short)ItemType<NanoblackReaper>(),
-            (short)ItemType<Sacrifice>(),
-            (short)ItemType<Seraphim>(),
-            (short)ItemType<TheAtomSplitter>(),
-            (short)ItemType<EclipsesFall>(),
-            (short)ItemType<ScarletDevil>(),
-            (short)ItemType<Wrathwing>(),
-            (short)ItemType<GodsParanoia>(),
-            (short)ItemType<ExecutionersBlade>(),
-            (short)ItemType<TheFinalDawn>(),
-            (short)ItemType<Hypothermia>(),
-            (short)ItemType<RefractionRotor>(),
-            (short)ItemType<PrismaticBreaker>(),
-        ]);
+        if (ModLoader.HasMod("CalamityMod"))
+        {
+            PHWeapons.AddRange(GetCalPHM());
+            HMWeapons.AddRange(GetCalHM());
+            PostMLWeapons.AddRange(GetCalPML());
+            PostDoGWeapons.AddRange(GetCalPD());
+        }
     }
 }
