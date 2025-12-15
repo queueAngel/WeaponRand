@@ -549,9 +549,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Disseminator>();
         yield return (short)ItemType<FetidEmesis>();
         yield return (short)ItemType<GoldenEagle>();
-        yield return (short)ItemType<HalibutCannon>();
         yield return (short)ItemType<Infinity>();
-        yield return (short)ItemType<TheJailor>();
         yield return (short)ItemType<Karasawa>();
         yield return (short)ItemType<Kingsbane>();
         yield return (short)ItemType<OnyxChainBlaster>();
@@ -596,7 +594,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<VenusianTrident>();
         yield return (short)ItemType<Viscera>();
         yield return (short)ItemType<VitriolicViper>();
-        yield return (short)ItemType<VoltaicClimax>();
         yield return (short)ItemType<AethersWhisper>();
         yield return (short)ItemType<ApoctosisArray>();
         yield return (short)ItemType<Effervescence>();
@@ -666,6 +663,9 @@ public sealed partial class WeaponRand : Mod
     [JITWhenModsEnabled("CalamityMod")]
     private static IEnumerable<short> GetCalPD()
     {
+        yield return (short)ItemType<HalibutCannon>();
+        yield return (short)ItemType<TheJailor>();
+        yield return (short)ItemType<VoltaicClimax>();
         yield return (short)ItemType<Ataraxia>();
         yield return (short)ItemType<DevilsDevastation>();
         yield return (short)ItemType<DraconicDestruction>();

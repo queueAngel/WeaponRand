@@ -439,7 +439,6 @@ public sealed partial class WeaponRand : Mod
         StarWrath,
         Meowmere,
         Terrarian,
-        Zenith,
         SDMG,
         Celeb2,
         LunarFlareBook,
@@ -447,7 +446,10 @@ public sealed partial class WeaponRand : Mod
         MoonlordTurretStaff,
         RainbowCrystalStaff
     ];
-    public static List<short> PostDoGWeapons = [];
+    public static List<short> PostDoGWeapons = 
+    [
+        Zenith,
+    ];
     public WeaponRand()
     {
         Instance = this;
