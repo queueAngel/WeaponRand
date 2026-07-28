@@ -46,6 +46,11 @@ Configs: {
 			Label: Randomization Effect
 			Tooltip: Whether to show a visual effect when a player's item is randomized
 		}
+
+		ToolbarSlot: {
+			Label: Toolbar Slot
+			Tooltip: ""
+		}
 	}
 }
 

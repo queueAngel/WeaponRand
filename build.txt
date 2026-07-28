@@ -1,5 +1,5 @@
 displayName = Weapon Randomizer
-homepage = https://terramonmod.com/links/
+homepage = https://github.com/queueAngel/WeaponRand/
 author = qAngel
 version = 0.1
 weakReferences = CalamityMod, ThoriumMod

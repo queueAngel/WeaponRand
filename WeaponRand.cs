@@ -457,9 +457,9 @@ public sealed partial class WeaponRand : Mod
     public override void PostSetupContent()
     {
         if (ModLoader.HasMod("CalamityMod"))
-            CalamitySupport();
+            CalamitySupport.Add();
         if (ModLoader.HasMod("ThoriumMod"))
-            ThoriumSupport();
+            ThoriumSupport.Add();
 
         /*
         for (short i = Count; i < ItemLoader.ItemCount; i++)
@@ -475,16 +475,27 @@ public sealed partial class WeaponRand : Mod
         }
         */
     }
+    public override object Call(params object[] args)
+    {
+        return args[0] switch
+        {
+            "phm" => PHWeapons,
+            "hm" => HMWeapons,
+            "pml" => PostMLWeapons,
+            "pd" => PostDoGWeapons,
+            _ => null,
+        };
+    }
     public override void HandlePacket(BinaryReader reader, int whoAmI)
     {
         var plr = reader.ReadByte();
-        var idAndMax = reader.ReadUInt16();
-
-        var id = idAndMax >> 1;
-        var max = (idAndMax & 0b1) != 0;
+        var maxAndSlot = reader.ReadByte();
+        var id = reader.ReadUInt16();
+        var max = (maxAndSlot & 0b0001_0000) != 0;
+        var slot = maxAndSlot & 0b0000_1111;
 
         var player = Main.player[plr];
-        var item = player.inventory[0];
+        var item = player.inventory[slot];
         item.SetDefaults(id);
         FullySetupItem(item, max);
 
@@ -492,9 +503,10 @@ public sealed partial class WeaponRand : Mod
 
         if (Main.dedServ)
         {
-            var p = GetPacket(3);
+            var p = GetPacket(4);
             p.Write(plr);
-            p.Write(idAndMax);
+            p.Write(maxAndSlot);
+            p.Write(id);
             p.Send(ignoreClient: plr);
         }
     }
@@ -503,7 +515,7 @@ public sealed partial class WeaponRand : Mod
         if (max)
             i.stack = i.maxStack;
         if (ModLoader.HasMod("CalamityMod"))
-            SetMaxCharge(i);
+            CalamitySupport.SetMaxCharge(i);
     }
 }
 
@@ -535,17 +547,20 @@ public sealed class WeaponRandPlayer : ModPlayer
     }
     public void RandomizeItem()
     {
-        var item = Player.inventory[0];
+        var slot = WeaponRandConfig.Instance.ToolbarSlot;
+        var item = Player.inventory[slot];
         RandomizeByProgression(item);
         RandomizedEffect();
         if (Main.netMode == NetmodeID.MultiplayerClient)
         {
-            var p = WeaponRand.Instance.GetPacket(3);
+            var p = WeaponRand.Instance.GetPacket(4);
             p.Write((byte)Player.whoAmI);
-            var idAndMax = (uint)item.type << 1;
+            var maxAndSlot = default(byte);
             if (WeaponRandConfig.Instance.MaxStack)
-                idAndMax |= 0b1;
-            p.Write((ushort)idAndMax);
+                maxAndSlot |= 0b0001_0000;
+            maxAndSlot |= slot;
+            p.Write(maxAndSlot);
+            p.Write((ushort)item.type);
             p.Send();
         }
     }
@@ -643,6 +658,9 @@ public sealed class WeaponRandConfig : ModConfig
 
     [DefaultValue(true)]
     public bool PostDoGCategory;
+
+    [DefaultValue(0), Range((byte)0, (byte)9), Slider]
+    public byte ToolbarSlot;
 
     [Header("Interval")]
 

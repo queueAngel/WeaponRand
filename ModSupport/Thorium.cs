@@ -52,17 +52,16 @@ using ThoriumMod.Items.ThrownItems;
 using ThoriumMod.Items.Titan;
 using ThoriumMod.Items.Tracker;
 using ThoriumMod.Items.Valadium;
-using ThoriumMod.Projectiles.Thrower;
 using static Terraria.ModLoader.ModContent;
 
 namespace WeaponRand;
 
-public sealed partial class WeaponRand : Mod
+[JITWhenModsEnabled("ThoriumMod")]
+public static class ThoriumSupport
 {
-    [JITWhenModsEnabled("ThoriumMod")]
-    public static void ThoriumSupport()
+    public static void Add()
     {
-        PHWeapons.AddRange(
+        WeaponRand.PHWeapons.AddRange(
         [
             (short)ItemType<Aerial>(),
             (short)ItemType<Alphorn>(),
@@ -335,7 +334,7 @@ public sealed partial class WeaponRand : Mod
             (short)ItemType<YewWoodLute>(),
         ]);
 
-        HMWeapons.AddRange(
+        WeaponRand.HMWeapons.AddRange(
         [
             (short)ItemType<TwentyFourCaratTuba>(),
             (short)ItemType<AcousticGuitar>(),
@@ -759,7 +758,7 @@ public sealed partial class WeaponRand : Mod
             (short)ItemType<Zunpet>(),
         ]);
 
-        PostMLWeapons.AddRange(
+        WeaponRand.PostMLWeapons.AddRange(
         [
             (short)ItemType<PrometheanStaff>(),
             (short)ItemType<BloodGlory>(),

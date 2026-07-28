@@ -16,23 +16,24 @@ using static Terraria.ModLoader.ModContent;
 
 namespace WeaponRand;
 
-public sealed partial class WeaponRand : Mod
+[JITWhenModsEnabled("CalamityMod")]
+public static class CalamitySupport
 {
-    [JITWhenModsEnabled("CalamityMod")]
     public static void SetMaxCharge(Item i)
     {
         var global = i.Calamity();
         if (global.UsesCharge)
             global.Charge = global.MaxCharge;
     }
-    [JITWhenModsEnabled("CalamityMod")]
     private static IEnumerable<short> GetCalPHM()
     {
+        yield return (short)ItemType<DriftwoodSword>();
+        yield return (short)ItemType<AcidwoodSword>();
         yield return (short)ItemType<Basher>();
         yield return (short)ItemType<BrokenBiomeBlade>();
         yield return (short)ItemType<BurntSienna>();
         yield return (short)ItemType<FellerofEvergreens>();
-        yield return (short)ItemType<GaussDagger>();
+        yield return (short)ItemType<Auger>();
         yield return (short)ItemType<GeliticBlade>();
         yield return (short)ItemType<MycelialClaws>();
         yield return (short)ItemType<PerfectDark>();
@@ -49,11 +50,9 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SmokingComet>();
         yield return (short)ItemType<AmidiasTrident>();
         yield return (short)ItemType<GoldplumeSpear>();
-        yield return (short)ItemType<RedtideSpear>();
         yield return (short)ItemType<SausageMaker>();
         yield return (short)ItemType<YateveoBloom>();
         yield return (short)ItemType<BallOFugu>();
-        yield return (short)ItemType<UrchinFlail>();
         yield return (short)ItemType<UrchinMace>();
         yield return (short)ItemType<BladecrestOathsword>();
         yield return (short)ItemType<DepthCrusher>();
@@ -61,6 +60,10 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<MonstrousKnives>();
         yield return (short)ItemType<OldLordClaymore>();
         yield return (short)ItemType<WulfrumScrewdriver>();
+        yield return (short)ItemType<SlagfireDouser>();
+        yield return (short)ItemType<M1Garand>();
+        yield return (short)ItemType<DriftwoodBow>();
+        yield return (short)ItemType<AcidwoodBow>();
         yield return (short)ItemType<Barinade>();
         yield return (short)ItemType<Galeforce>();
         yield return (short)ItemType<Goobow>();
@@ -78,7 +81,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<OverloadedBlaster>();
         yield return (short)ItemType<Shadethrower>();
         yield return (short)ItemType<SparkSpreader>();
-        yield return (short)ItemType<CoralCannon>();
         yield return (short)ItemType<FirestormCannon>();
         yield return (short)ItemType<FlurrystormCannon>();
         yield return (short)ItemType<MagnaCannon>();
@@ -86,7 +88,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Pumpler>();
         yield return (short)ItemType<ReedBlowgun>();
         yield return (short)ItemType<StormSurge>();
-        yield return (short)ItemType<Taser>();
+        yield return (short)ItemType<ShortCircuit>();
         yield return (short)ItemType<WulfrumBlunderbuss>();
         yield return (short)ItemType<AquamarineStaff>();
         yield return (short)ItemType<BloodBath>();
@@ -116,6 +118,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SparklingEmpress>();
         yield return (short)ItemType<WulfrumProsthesis>();
         yield return (short)ItemType<BelladonnaSpiritStaff>();
+        yield return (short)ItemType<EnchantedKnifeStaff>();
         yield return (short)ItemType<BrittleStarStaff>();
         yield return (short)ItemType<CinderBlossomStaff>();
         yield return (short)ItemType<CorroslimeStaff>();
@@ -130,7 +133,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<PuffShroom>();
         yield return (short)ItemType<ScabRipper>();
         yield return (short)ItemType<StaffOfNecrosteocytes>();
-        yield return (short)ItemType<StarSwallowerContainmentUnit>();
+        yield return (short)ItemType<AqueousHunterDrone>();
         yield return (short)ItemType<StormjawStaff>();
         yield return (short)ItemType<SunSpiritStaff>();
         yield return (short)ItemType<VileFeeder>();
@@ -143,15 +146,17 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Cnidarian>();
         yield return (short)ItemType<SlimePuppetStaff>();
         yield return (short)ItemType<ContaminatedBile>();
+        yield return (short)ItemType<LemonNade>();
         yield return (short)ItemType<MeteorFist>();
         yield return (short)ItemType<SeafoamBomb>();
+        yield return (short)ItemType<Pumpkaboom>();
         yield return (short)ItemType<EnchantedAxe>();
         yield return (short)ItemType<FishboneBoomerang>();
         yield return (short)ItemType<Glaive>();
         yield return (short)ItemType<InfestedClawmerang>();
         yield return (short)ItemType<Kylie>();
         yield return (short)ItemType<SandDollar>();
-        yield return (short)ItemType<TrackingDisk>();
+        yield return (short)ItemType<AerialTracker>();
         yield return (short)ItemType<AshenStalactite>();
         yield return (short)ItemType<Cinquedea>();
         yield return (short)ItemType<Crystalline>();
@@ -163,14 +168,11 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Mycoroot>();
         yield return (short)ItemType<ShinobiBlade>();
         yield return (short)ItemType<WulfrumKnife>();
+        yield return (short)ItemType<AntlionSkewer>();
         yield return (short)ItemType<ScourgeoftheDesert>();
         yield return (short)ItemType<Turbulance>();
-        yield return (short)ItemType<BouncySpikyBall>();
         yield return (short)ItemType<MetalMonstrosity>();
         yield return (short)ItemType<NastyCholla>();
-        yield return (short)ItemType<PoisonPack>();
-        yield return (short)ItemType<SkyStabber>();
-        yield return (short)ItemType<StickySpikyBall>();
         yield return (short)ItemType<WebBall>();
         yield return (short)ItemType<BouncingEyeball>();
         yield return (short)ItemType<HardenedHoneycomb>();
@@ -191,9 +193,8 @@ public sealed partial class WeaponRand : Mod
     {
         yield return (short)ItemType<AbsoluteZero>();
         yield return (short)ItemType<AegisBlade>();
-        yield return (short)ItemType<Aftershock>();
         yield return (short)ItemType<AnarchyBlade>();
-        yield return (short)ItemType<AstralBlade>();
+        yield return (short)ItemType<MonolithSword>();
         yield return (short)ItemType<AstralScythe>();
         yield return (short)ItemType<Avalanche>();
         yield return (short)ItemType<AxeofPurity>();
@@ -204,14 +205,12 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<BrimstoneSword>();
         yield return (short)ItemType<BrinyBaron>();
         yield return (short)ItemType<Carnage>();
-        yield return (short)ItemType<CatastropheClaymore>();
         yield return (short)ItemType<TrueCausticEdge>();
         yield return (short)ItemType<CelestialClaymore>();
         yield return (short)ItemType<CometQuasher>();
         yield return (short)ItemType<TheDarkMaster>();
         yield return (short)ItemType<DarklightGreatsword>();
         yield return (short)ItemType<EntropicClaymore>();
-        yield return (short)ItemType<EutrophicScimitar>();
         yield return (short)ItemType<EvilSmasher>();
         yield return (short)ItemType<ExaltedOathblade>();
         yield return (short)ItemType<FeralthornClaymore>();
@@ -247,7 +246,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<AstralPike>();
         yield return (short)ItemType<BotanicPiercer>();
         yield return (short)ItemType<Brimlance>();
-        yield return (short)ItemType<DiseasedPike>();
         yield return (short)ItemType<EarthenPike>();
         yield return (short)ItemType<GalvanizingGlaive>();
         yield return (short)ItemType<HellionFlowerSpear>();
@@ -266,7 +264,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Respiteblock>();
         yield return (short)ItemType<StygianShield>();
         yield return (short)ItemType<TyphonsGreed>();
-        yield return (short)ItemType<AstralBow>();
+        yield return (short)ItemType<MonolithBow>();
         yield return (short)ItemType<TheBallista>();
         yield return (short)ItemType<Barinautical>();
         yield return (short)ItemType<BlossomFlux>();
@@ -286,7 +284,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Arietes41>();
         yield return (short)ItemType<AstralBlaster>();
         yield return (short)ItemType<ClamorRifle>();
-        yield return (short)ItemType<ClockGatlignum>();
         yield return (short)ItemType<ConferenceCall>();
         yield return (short)ItemType<DeepcoreGK2>();
         yield return (short)ItemType<FrostbiteBlaster>();
@@ -299,6 +296,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Needler>();
         yield return (short)ItemType<NitroExpressRifle>();
         yield return (short)ItemType<P90>();
+        yield return (short)ItemType<OmniGun>();
         yield return (short)ItemType<PestilentDefiler>();
         yield return (short)ItemType<PlagueTaintedSMG>();
         yield return (short)ItemType<RealmRavager>();
@@ -321,11 +319,11 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<ArcNovaDiffuser>();
         yield return (short)ItemType<BarracudaGun>();
         yield return (short)ItemType<Buzzkill>();
-        yield return (short)ItemType<GaussRifle>();
-        yield return (short)ItemType<MatterModulator>();
+        yield return (short)ItemType<Nidhogg>();
+        yield return (short)ItemType<HolofibreImmolator>();
         yield return (short)ItemType<NullificationPistol>();
         yield return (short)ItemType<PolarisParrotfish>();
-        yield return (short)ItemType<SandstormGun>();
+        yield return (short)ItemType<Sandblaster>();
         yield return (short)ItemType<SeasSearing>();
         yield return (short)ItemType<SpectralstormCannon>();
         yield return (short)ItemType<SpeedBlaster>();
@@ -356,10 +354,9 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Vesuvius>();
         yield return (short)ItemType<WyvernsCall>();
         yield return (short)ItemType<Cryophobia>();
-        yield return (short)ItemType<GatlingLaser>();
-        yield return (short)ItemType<GaussPistol>();
+        yield return (short)ItemType<CountermeasureMitt>();
+        yield return (short)ItemType<Vulcan>();
         yield return (short)ItemType<IonBlaster>();
-        yield return (short)ItemType<Lazhar>();
         yield return (short)ItemType<NanoPurge>();
         yield return (short)ItemType<SHPC>();
         yield return (short)ItemType<TheSwarmer>();
@@ -379,15 +376,15 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SlitheringEels>();
         yield return (short)ItemType<StarShower>();
         yield return (short)ItemType<TearsofHeaven>();
-        yield return (short)ItemType<TomeofFates>();
+        yield return (short)ItemType<Apathanull>();
         yield return (short)ItemType<WintersFury>();
-        yield return (short)ItemType<WrathoftheAncients>();
         yield return (short)ItemType<AnahitasArpeggio>();
         yield return (short)ItemType<ArcticBearPaw>();
         yield return (short)ItemType<BelchingSaxophone>();
         yield return (short)ItemType<ClothiersWrath>();
         yield return (short)ItemType<CosmicRainbow>();
         yield return (short)ItemType<HadalUrn>();
+        yield return (short)ItemType<AmphibiansGuitar>();
         yield return (short)ItemType<AbandonedSlimeStaff>();
         yield return (short)ItemType<AncientIceChunk>();
         yield return (short)ItemType<BlackHawkRemote>();
@@ -420,17 +417,16 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<PulseTurretRemote>();
         yield return (short)ItemType<SpikecragStaff>();
         yield return (short)ItemType<BorealisBomber>();
-        yield return (short)ItemType<AcidicRainBarrel>();
         yield return (short)ItemType<BallisticPoisonBomb>();
         yield return (short)ItemType<BlastBarrel>();
-        yield return (short)ItemType<BrackishFlask>();
+        yield return (short)ItemType<Whitewater>();
         yield return (short)ItemType<ConsecratedWater>();
         yield return (short)ItemType<CraniumSmasher>();
         yield return (short)ItemType<DesecratedWater>();
         yield return (short)ItemType<DuststormInABottle>();
         yield return (short)ItemType<Exorcism>();
         yield return (short)ItemType<Plaguenade>();
-        yield return (short)ItemType<ShockGrenade>();
+        yield return (short)ItemType<DoomsdayDevice>();
         yield return (short)ItemType<SkyfinBombers>();
         yield return (short)ItemType<SpentFuelContainer>();
         yield return (short)ItemType<StarofDestruction>();
@@ -440,6 +436,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<DefectiveSphere>();
         yield return (short)ItemType<EpidemicShredder>();
         yield return (short)ItemType<Equanimity>();
+        yield return (short)ItemType<ElephantKiller>();
         yield return (short)ItemType<FrostcrushValari>();
         yield return (short)ItemType<Icebreaker>();
         yield return (short)ItemType<KelvinCatalyst>();
@@ -451,7 +448,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<CursedDagger>();
         yield return (short)ItemType<LeviathanTeeth>();
         yield return (short)ItemType<Malachite>();
-        yield return (short)ItemType<MonkeyDarts>();
         yield return (short)ItemType<MythrilKnife>();
         yield return (short)ItemType<OrichalcumSpikedGemstone>();
         yield return (short)ItemType<Prismalline>();
@@ -459,7 +455,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<StellarKnife>();
         yield return (short)ItemType<StormfrontRazor>();
         yield return (short)ItemType<CrystalPiercer>();
-        yield return (short)ItemType<FrequencyManipulator>();
+        yield return (short)ItemType<PulseGrenade>();
         yield return (short)ItemType<IchorSpear>();
         yield return (short)ItemType<PalladiumJavelin>();
         yield return (short)ItemType<PhantasmalRuin>();
@@ -469,7 +465,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SpearofPaleolith>();
         yield return (short)ItemType<WaveSkipper>();
         yield return (short)ItemType<BurningStrife>();
-        yield return (short)ItemType<Nychthemeron>();
         yield return (short)ItemType<SystemBane>();
         yield return (short)ItemType<AdamantiteThrowingAxe>();
         yield return (short)ItemType<Apoctolith>();
@@ -485,7 +480,6 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<IceStar>();
         yield return (short)ItemType<LeonidProgenitor>();
         yield return (short)ItemType<RegulusRiot>();
-        yield return (short)ItemType<Sandslasher>();
         yield return (short)ItemType<TheSyringe>();
         yield return (short)ItemType<TerrorTalons>();
         yield return (short)ItemType<TitaniumShuriken>();
@@ -496,7 +490,6 @@ public sealed partial class WeaponRand : Mod
     private static IEnumerable<short> GetCalPML()
     {
         yield return (short)ItemType<DefiledGreatsword>();
-        yield return (short)ItemType<Devastation>();
         yield return (short)ItemType<GalactusBlade>();
         yield return (short)ItemType<Grax>();
         yield return (short)ItemType<GreatswordofJudgement>();
@@ -506,19 +499,18 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<LionHeart>();
         yield return (short)ItemType<MirrorBlade>();
         yield return (short)ItemType<TheMutilator>();
-        yield return (short)ItemType<PlagueKeeper>();
         yield return (short)ItemType<SolsticeClaymore>();
         yield return (short)ItemType<StellarStriker>();
         yield return (short)ItemType<Swordsplosion>();
         yield return (short)ItemType<Terratomere>();
         yield return (short)ItemType<TerrorBlade>();
         yield return (short)ItemType<VoidEdge>();
-        yield return (short)ItemType<ElementalShiv>();
+        yield return (short)ItemType<Lightspeed>();
         yield return (short)ItemType<GalileoGladius>();
         yield return (short)ItemType<BurningRevelation>();
         yield return (short)ItemType<Lacerator>();
         yield return (short)ItemType<BansheeHook>();
-        yield return (short)ItemType<ElementalLance>();
+        yield return (short)ItemType<VanishingPoint>();
         yield return (short)ItemType<GildedProboscis>();
         yield return (short)ItemType<SeekingScorcher>();
         yield return (short)ItemType<CrescentMoon>();
@@ -546,41 +538,36 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Auralis>();
         yield return (short)ItemType<ClaretCannon>();
         yield return (short)ItemType<CorinthPrime>();
-        yield return (short)ItemType<Disseminator>();
         yield return (short)ItemType<FetidEmesis>();
         yield return (short)ItemType<GoldenEagle>();
-        yield return (short)ItemType<Infinity>();
         yield return (short)ItemType<Karasawa>();
         yield return (short)ItemType<Kingsbane>();
         yield return (short)ItemType<OnyxChainBlaster>();
         yield return (short)ItemType<Onyxia>();
         yield return (short)ItemType<PearlGod>();
         yield return (short)ItemType<PridefulHuntersPlanarRipper>();
-        yield return (short)ItemType<RubicoPrime>();
-        yield return (short)ItemType<SDFMG>();
         yield return (short)ItemType<Seadragon>();
         yield return (short)ItemType<TheSevensStriker>();
         yield return (short)ItemType<Shredder>();
-        yield return (short)ItemType<SomaPrime>();
+        yield return (short)ItemType<TauCannon>();
         yield return (short)ItemType<Spyker>();
-        yield return (short)ItemType<StormDragoon>();
+        yield return (short)ItemType<SkytideDragoon>();
         yield return (short)ItemType<BlissfulBombardier>();
         yield return (short)ItemType<HandheldTank>();
         yield return (short)ItemType<BloodBoiler>();
-        yield return (short)ItemType<ElementalEruption>();
+        yield return (short)ItemType<ChromaticEruption>();
         yield return (short)ItemType<HalleysInferno>();
         yield return (short)ItemType<PristineFury>();
         yield return (short)ItemType<FreedomStar>();
-        yield return (short)ItemType<HeavyLaserRifle>();
-        yield return (short)ItemType<MolecularManipulator>();
+        yield return (short)ItemType<PhalanxSurge>();
+        yield return (short)ItemType<OntologicalDespoiler>();
         yield return (short)ItemType<SepticSkewer>();
         yield return (short)ItemType<Starfleet>();
         yield return (short)ItemType<SulphuricAcidCannon>();
         yield return (short)ItemType<SuperradiantSlaughterer>();
-        yield return (short)ItemType<AsteroidStaff>();
-        yield return (short)ItemType<ClamorNoctus>();
+        yield return (short)ItemType<AlphaDraconis>();
         yield return (short)ItemType<EidolonStaff>();
-        yield return (short)ItemType<ElementalRay>();
+        yield return (short)ItemType<Nucleosynthesis>();
         yield return (short)ItemType<FatesReveal>();
         yield return (short)ItemType<MagneticMeltdown>();
         yield return (short)ItemType<Mistlestorm>();
@@ -589,6 +576,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SanguineFlare>();
         yield return (short)ItemType<ShadowboltStaff>();
         yield return (short)ItemType<Teslastaff>();
+        yield return (short)ItemType<UnstableCastersGauntlet>();
         yield return (short)ItemType<ThornBlossom>();
         yield return (short)ItemType<UltraLiquidator>();
         yield return (short)ItemType<VenusianTrident>();
@@ -602,8 +590,8 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<PlasmaCaster>();
         yield return (short)ItemType<PlasmaRifle>();
         yield return (short)ItemType<PurgeGuzzler>();
-        yield return (short)ItemType<Thunderstorm>();
-        yield return (short)ItemType<AuguroftheElements>();
+        yield return (short)ItemType<Volterion>();
+        yield return (short)ItemType<AuguroftheVoid>();
         yield return (short)ItemType<Biofusillade>();
         yield return (short)ItemType<NuclearFury>();
         yield return (short)ItemType<RougeSlash>();
@@ -616,8 +604,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Cosmilamp>();
         yield return (short)ItemType<DazzlingStabberStaff>();
         yield return (short)ItemType<DragonbloodDisgorger>();
-        yield return (short)ItemType<ElementalAxe>();
-        yield return (short)ItemType<Endogenesis>();
+        yield return (short)ItemType<LegionofCelestia>();
         yield return (short)ItemType<EtherealSubjugator>();
         yield return (short)ItemType<FlowersOfMortality>();
         yield return (short)ItemType<GammaHeart>();
@@ -636,7 +623,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<SanctifiedSpark>();
         yield return (short)ItemType<SealedSingularity>();
         yield return (short)ItemType<WavePounder>();
-        yield return (short)ItemType<ElementalDisk>();
+        yield return (short)ItemType<ReboundingRainbow>();
         yield return (short)ItemType<GhoulishGouger>();
         yield return (short)ItemType<MoltenAmputator>();
         yield return (short)ItemType<ToxicantTwister>();
@@ -644,16 +631,14 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<CosmicKunai>();
         yield return (short)ItemType<JawsOfOblivion>();
         yield return (short)ItemType<LunarKunai>();
-        yield return (short)ItemType<ShatteredSun>();
+        yield return (short)ItemType<ShatteredDawn>();
         yield return (short)ItemType<TarragonThrowingDart>();
         yield return (short)ItemType<TimeBolt>();
         yield return (short)ItemType<TwistingThunder>();
         yield return (short)ItemType<UtensilPoker>();
-        yield return (short)ItemType<NightsGaze>();
+        yield return (short)ItemType<Vega>();
         yield return (short)ItemType<ProfanedPartisan>();
         yield return (short)ItemType<RealityRupture>();
-        yield return (short)ItemType<HellsSun>();
-        yield return (short)ItemType<AlphaVirus>();
         yield return (short)ItemType<BloodsoakedCrasher>();
         yield return (short)ItemType<CelestialReaper>();
         yield return (short)ItemType<DeepSeaDumbbell>();
@@ -663,6 +648,11 @@ public sealed partial class WeaponRand : Mod
     [JITWhenModsEnabled("CalamityMod")]
     private static IEnumerable<short> GetCalPD()
     {
+        yield return (short)ItemType<Endogenesis>();
+        yield return (short)ItemType<RubicoPrime>();
+        yield return (short)ItemType<SomaPrime>();
+        yield return (short)ItemType<Infinity>();
+        yield return (short)ItemType<SDFMG>();
         yield return (short)ItemType<HalibutCannon>();
         yield return (short)ItemType<TheJailor>();
         yield return (short)ItemType<VoltaicClimax>();
@@ -670,11 +660,9 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<DevilsDevastation>();
         yield return (short)ItemType<DraconicDestruction>();
         yield return (short)ItemType<Earth>();
-        yield return (short)ItemType<TheEnforcer>();
         yield return (short)ItemType<EssenceFlayer>();
-        yield return (short)ItemType<Excelsus>();
+        yield return (short)ItemType<MawOfInfinity>();
         yield return (short)ItemType<GaelsGreatsword>();
-        yield return (short)ItemType<IridescentExcalibur>();
         yield return (short)ItemType<Orderbringer>();
         yield return (short)ItemType<RedSun>();
         yield return (short)ItemType<CosmicShiv>();
@@ -682,7 +670,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<TheOracle>();
         yield return (short)ItemType<Ozzathoth>();
         yield return (short)ItemType<Nadir>();
-        yield return (short)ItemType<TriactisTruePaladinianMageHammerofMightMelee>();
+        yield return (short)ItemType<TriactisTruePaladinianMageHammerofMight>();
         yield return (short)ItemType<CosmicDischarge>();
         yield return (short)ItemType<DragonPow>();
         yield return (short)ItemType<SpineOfThanatos>();
@@ -702,10 +690,10 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Violence>();
         yield return (short)ItemType<Alluvion>();
         yield return (short)ItemType<Contagion>();
-        yield return (short)ItemType<Deathwind>();
+        yield return (short)ItemType<ThreadOfEradication>();
         yield return (short)ItemType<Drataliornus>();
         yield return (short)ItemType<HeavenlyGale>();
-        yield return (short)ItemType<Phangasm>();
+        yield return (short)ItemType<Riftburst>();
         yield return (short)ItemType<Ultima>();
         yield return (short)ItemType<Condemnation>();
         yield return (short)ItemType<AcesHigh>();
@@ -727,7 +715,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<PulseRifle>();
         yield return (short)ItemType<Starmada>();
         yield return (short)ItemType<Starmageddon>();
-        yield return (short)ItemType<DeathhailStaff>();
+        yield return (short)ItemType<HyperdeathRiftScepter>();
         yield return (short)ItemType<HeliumFlash>();
         yield return (short)ItemType<IceBarrage>();
         yield return (short)ItemType<NebulousCataclysm>();
@@ -768,7 +756,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Perdition>();
         yield return (short)ItemType<PoleWarper>();
         yield return (short)ItemType<SarosPossession>();
-        yield return (short)ItemType<StaffoftheMechworm>();
+        yield return (short)ItemType<VoidEaterMarionette>();
         yield return (short)ItemType<TemporalUmbrella>();
         yield return (short)ItemType<Vigilance>();
         yield return (short)ItemType<YharonsKindleStaff>();
@@ -781,7 +769,7 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<Supernova>();
         yield return (short)ItemType<Celestus>();
         yield return (short)ItemType<DynamicPursuer>();
-        yield return (short)ItemType<Eradicator>();
+        yield return (short)ItemType<DimensionTearingDisk>();
         yield return (short)ItemType<NanoblackReaper>();
         yield return (short)ItemType<Sacrifice>();
         yield return (short)ItemType<Seraphim>();
@@ -796,14 +784,11 @@ public sealed partial class WeaponRand : Mod
         yield return (short)ItemType<RefractionRotor>();
         yield return (short)ItemType<PrismaticBreaker>();
     }
-    public static void CalamitySupport()
+    public static void Add()
     {
-        if (ModLoader.HasMod("CalamityMod"))
-        {
-            PHWeapons.AddRange(GetCalPHM());
-            HMWeapons.AddRange(GetCalHM());
-            PostMLWeapons.AddRange(GetCalPML());
-            PostDoGWeapons.AddRange(GetCalPD());
-        }
+        WeaponRand.PHWeapons.AddRange(GetCalPHM());
+        WeaponRand.HMWeapons.AddRange(GetCalHM());
+        WeaponRand.PostMLWeapons.AddRange(GetCalPML());
+        WeaponRand.PostDoGWeapons.AddRange(GetCalPD());
     }
 }
