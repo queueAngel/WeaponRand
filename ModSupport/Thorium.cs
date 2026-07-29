@@ -114,10 +114,10 @@ public static class ThoriumSupport
             (short)ItemType<CoralPolearm>(),
             (short)ItemType<CoralSlasher>(),
             (short)ItemType<CreepingVineStaff>(),
-            (short)ItemType<CrimsonScythe>(),
+            (short)ItemType<TheBlender>(),
             (short)ItemType<CrimtaneTomahawk>(),
             (short)ItemType<BaseballBat>(),
-            (short)ItemType<DarkScythe>(),
+            (short)ItemType<DownwardSpiral>(),
             (short)ItemType<DarkTome>(),
             (short)ItemType<DarkWave>(),
             (short)ItemType<eDarksteelBroadSword>(),
@@ -174,7 +174,6 @@ public static class ThoriumSupport
             (short)ItemType<Harmonica>(),
             (short)ItemType<HarpiesBarrage>(),
             (short)ItemType<HarpyPelter>(),
-            (short)ItemType<HarpyTalon>(),
             (short)ItemType<Heartstriker>(),
             (short)ItemType<HellfireMinigun>(),
             (short)ItemType<HereticBreaker>(),
@@ -332,6 +331,7 @@ public static class ThoriumSupport
             (short)ItemType<YewWoodBow>(),
             (short)ItemType<YewWoodFlintlock>(),
             (short)ItemType<YewWoodLute>(),
+            (short)ItemType<WaterwickCandle>(),
         ]);
 
         WeaponRand.HMWeapons.AddRange(
